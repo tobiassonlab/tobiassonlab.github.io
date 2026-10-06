@@ -4,8 +4,8 @@ title: "People"
 excerpt: "The researchers, students, visitors and alumni of the Tobiasson Lab."
 permalink: /people/
 header:
-  overlay_color: "#ffffff"
 ---
+
 {% assign people = site.data.people %}
 
 <div class="people-page">
@@ -29,6 +29,14 @@ header:
   <section class="people-section" id="postdocs">
     <p class="people-section__eyebrow">Current team</p>
     <h2>Postdocs</h2>
+    {% include people-grid.html people=people.postdocs %}
+  </section>
+  {% endif %}
+
+  {% if people.technicians.size > 0 %}
+  <section class="people-section" id="technicians">
+    <p class="people-section__eyebrow">Current team</p>
+    <h2>Technicians</h2>
     {% include people-grid.html people=people.postdocs %}
   </section>
   {% endif %}

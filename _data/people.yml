@@ -12,8 +12,8 @@
 # Alumni only need: name, note (e.g. "PhD 2022 · now at Uni X").
 
 pi:
-  - name: Firstname Lastname
-    role: Principal investigator
+  - name: Victor Tobiasson
+    role: Principal Investigator
     photo:
     bio: >
       Short biography of the lab head: background, research interests, and
@@ -31,8 +31,8 @@ pi:
         url: mailto:someone@example.org
 
 postdocs:
-  - name: Postdoc Name
-    role: Postdoctoral researcher
+  - name: Genís Valentín Gesé
+    role: Postdoctoral Research Assistant
     photo:
     bio: >
       One or two sentences on what this person works on.
@@ -40,28 +40,47 @@ postdocs:
       - label: Website
         url: https://example.org
 
-students:
-  - name: Student One
-    role: PhD student
+  - name: Joaquim Filipe Faria
+    role: Postdoctoral Research Assistant
     photo:
     bio: >
-      Thesis topic in a sentence or two.
-  - name: Student Two
-    role: MSc student
-    photo:
-    bio: >
-      Project summary.
+      One or two sentences on what this person works on.
+    links:
+      - label: Website
+        url: https://example.org
 
-visitors:
-  - name: Visitor Name
-    role: Visiting PhD student, Some University
-    years: "2025"
+technicians:
+  - name: Kira Senk
+    role: Lab Technician
     photo:
     bio: >
-      What they worked on during the visit.
+      One or two sentences on what this person works on.
+    links:
+      - label: Website
+        url: https://example.org
 
-alumni:
-  - name: Former Member
-    note: PhD 2023 · now at Some Institute
-  - name: Another Alum
-    note: Postdoc 2020–2022
+#students:
+#  - name: Juanita
+#    role: BSc student
+#    photo:
+#    bio: >
+#      Thesis topic in a sentence or two.
+#  - name: Student Two
+#    role: MSc student
+#    photo:
+#    bio: >
+#      Project summary.
+#
+#visitors:
+#  - name: Visitor Name
+#    role: Visiting PhD student, Some University
+#    years: "2025"
+#    photo:
+#    bio: >
+#      What they worked on during the visit.
+#
+#alumni:
+#  - name: Former Member
+#    note: PhD 2023 · now at Some Institute
+#  - name: Another Alum
+#    note: Postdoc 2020–2022
