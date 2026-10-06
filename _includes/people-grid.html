@@ -1,0 +1,27 @@
+{% comment %}
+  Card grid for the People page.
+  Usage: {% include people-grid.html people=site.data.people.students %}
+  Optional: wide=true for a single large card (lab head).
+{% endcomment %}
+<div class="people-grid{% if include.wide %} people-grid--wide{% endif %}">
+{% for person in include.people %}
+  <article class="person-card">
+    {% if person.photo %}
+    <img class="person-card__photo" src="{{ person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy">
+    {% else %}
+    {% assign name_parts = person.name | split: " " %}
+    <div class="person-card__photo person-card__photo--initials" aria-hidden="true">{{ name_parts.first | slice: 0 }}{% if name_parts.size > 1 %}{{ name_parts.last | slice: 0 }}{% endif %}</div>
+    {% endif %}
+    <div class="person-card__body">
+      <h3 class="person-card__name">{{ person.name }}{% if person.years %} <span class="person-card__years">{{ person.years }}</span>{% endif %}</h3>
+      {% if person.role %}<p class="person-card__role">{{ person.role }}</p>{% endif %}
+      {% if person.bio %}{{ person.bio | markdownify }}{% endif %}
+      {% if person.links %}
+      <p class="person-card__links">
+        {% for link in person.links %}<a href="{{ link.url }}"{% unless link.url contains "mailto:" %} target="_blank" rel="noopener"{% endunless %}>{{ link.label }}</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}{% endfor %}
+      </p>
+      {% endif %}
+    </div>
+  </article>
+{% endfor %}
+</div>

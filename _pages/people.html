@@ -1,0 +1,71 @@
+---
+layout: splash
+title: "People"
+excerpt: "The researchers, students, visitors and alumni of the Tobiasson Lab."
+permalink: /people/
+header:
+  overlay_color: "#2f4858"
+---
+{% assign people = site.data.people %}
+
+<div class="people-page">
+
+  <nav class="people-jump-nav" aria-label="People page sections">
+    <a href="#lab-head">Lab head</a>
+    {% if people.postdocs.size > 0 %}<a href="#postdocs">Postdocs</a>{% endif %}
+    {% if people.students.size > 0 %}<a href="#students">Students</a>{% endif %}
+    {% if people.visitors.size > 0 %}<a href="#visitors">Visiting researchers</a>{% endif %}
+    {% if people.alumni.size > 0 %}<a href="#alumni">Alumni</a>{% endif %}
+    <a href="#join">Join us</a>
+  </nav>
+
+  <section class="people-section" id="lab-head">
+    <p class="people-section__eyebrow">Principal investigator</p>
+    <h2>Lab head</h2>
+    {% include people-grid.html people=people.pi wide=true %}
+  </section>
+
+  {% if people.postdocs.size > 0 %}
+  <section class="people-section" id="postdocs">
+    <p class="people-section__eyebrow">Current team</p>
+    <h2>Postdocs</h2>
+    {% include people-grid.html people=people.postdocs %}
+  </section>
+  {% endif %}
+
+  {% if people.students.size > 0 %}
+  <section class="people-section" id="students">
+    <p class="people-section__eyebrow">Current team</p>
+    <h2>PhD and MSc students</h2>
+    {% include people-grid.html people=people.students %}
+  </section>
+  {% endif %}
+
+  {% if people.visitors.size > 0 %}
+  <section class="people-section" id="visitors">
+    <p class="people-section__eyebrow">Collaborators</p>
+    <h2>Visiting researchers</h2>
+    {% include people-grid.html people=people.visitors %}
+  </section>
+  {% endif %}
+
+  {% if people.alumni.size > 0 %}
+  <section class="people-section" id="alumni">
+    <p class="people-section__eyebrow">Former members</p>
+    <h2>Alumni</h2>
+    <ul class="alumni-list">
+      {% for alum in people.alumni %}
+      <li><strong>{{ alum.name }}</strong>{% if alum.note %}<span>{{ alum.note }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <section class="people-section" id="join">
+    <p class="people-section__eyebrow">Getting involved</p>
+    <h2>Join us</h2>
+    <p>We are always happy to hear from prospective students, postdocs and visitors interested in
+      evolutionary genomics. <a href="{{ '/contact/' | relative_url }}">Get in touch</a> to ask about current opportunities.</p>
+  </section>
+
+</div>

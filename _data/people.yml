@@ -1,0 +1,67 @@
+# People shown on /people/ (_pages/people.html).
+#
+# Fields (all optional except name):
+#   name   : Full name
+#   role   : Short line under the name, e.g. "PhD student (2024–)"
+#   years  : Small grey tag after the name, e.g. "2023–"
+#   photo  : Path under assets/, e.g. /assets/images/people/jane-doe.jpg
+#            (square-ish, ~600 px wide). Leave out to show initials instead.
+#   bio    : Markdown. Use ">" for a multi-line paragraph; blank line = new paragraph.
+#   links  : List of {label, url}
+#
+# Alumni only need: name, note (e.g. "PhD 2022 · now at Uni X").
+
+pi:
+  - name: Firstname Lastname
+    role: Principal investigator
+    photo:
+    bio: >
+      Short biography of the lab head: background, research interests, and
+      what the lab works on. This text supports **Markdown** and
+      [links](https://example.org).
+
+
+      A second paragraph goes after a blank line.
+    links:
+      - label: Google Scholar
+        url: https://scholar.google.com/
+      - label: ORCID
+        url: https://orcid.org/
+      - label: Email
+        url: mailto:someone@example.org
+
+postdocs:
+  - name: Postdoc Name
+    role: Postdoctoral researcher
+    photo:
+    bio: >
+      One or two sentences on what this person works on.
+    links:
+      - label: Website
+        url: https://example.org
+
+students:
+  - name: Student One
+    role: PhD student
+    photo:
+    bio: >
+      Thesis topic in a sentence or two.
+  - name: Student Two
+    role: MSc student
+    photo:
+    bio: >
+      Project summary.
+
+visitors:
+  - name: Visitor Name
+    role: Visiting PhD student, Some University
+    years: "2025"
+    photo:
+    bio: >
+      What they worked on during the visit.
+
+alumni:
+  - name: Former Member
+    note: PhD 2023 · now at Some Institute
+  - name: Another Alum
+    note: Postdoc 2020–2022

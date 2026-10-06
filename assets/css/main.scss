@@ -7,3 +7,151 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* ==========================================================================
+   People page (_pages/people.html, _includes/people-grid.html)
+   ========================================================================== */
+
+.people-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em 2em;
+}
+
+.people-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1em 0 2em;
+
+  a {
+    padding: 0.3em 0.9em;
+    border: 1px solid $border-color;
+    border-radius: 999px;
+    font-size: $type-size-6;
+    text-decoration: none;
+    color: $text-color;
+
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+  }
+}
+
+.people-section {
+  padding: 2em 0;
+  border-top: 1px solid $border-color;
+  scroll-margin-top: 4em;
+
+  h2 {
+    margin-top: 0.2em;
+    border-bottom: none;
+  }
+}
+
+.people-section__eyebrow {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5em;
+}
+
+.person-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  font-size: $type-size-6;
+
+  p { margin-bottom: 0.75em; }
+}
+
+.person-card__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: $border-radius;
+  margin-bottom: 1em;
+}
+
+.person-card__photo--initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: mix($primary-color, $background-color, 15%);
+  color: $primary-color;
+  font-family: $sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.person-card__name {
+  margin: 0 0 0.2em;
+  font-size: $type-size-4;
+}
+
+.person-card__years {
+  font-size: $type-size-7;
+  font-weight: normal;
+  color: $muted-text-color;
+}
+
+.person-card__role {
+  margin: 0 0 0.75em;
+  font-style: italic;
+  color: $muted-text-color;
+}
+
+.person-card__links {
+  margin-top: auto;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+}
+
+/* Lab head: photo beside text on wider screens */
+.people-grid--wide {
+  grid-template-columns: 1fr;
+
+  .person-card {
+    font-size: $type-size-5;
+
+    @include breakpoint($medium) {
+      display: grid;
+      grid-template-columns: minmax(200px, 300px) 1fr;
+      gap: 1.5em;
+      align-items: start;
+    }
+  }
+
+  .person-card__photo { margin-bottom: 0; }
+}
+
+.alumni-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5em 1.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: $type-size-6;
+
+  li { margin: 0; }
+
+  span {
+    display: block;
+    font-size: $type-size-7;
+    color: $muted-text-color;
+  }
+}
