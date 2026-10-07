@@ -450,3 +450,58 @@ h1, h2, h3, h4, h5, h6,
     color: $primary-color;
   }
 }
+
+/* ==========================================================================
+   Footer logo (_includes/footer/custom.html)
+   ========================================================================== */
+
+.footer-logo {
+  float: inline-end;
+  margin-inline-start: 1em;
+
+  img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: $border-radius;
+  }
+}
+
+/* ==========================================================================
+   Get in touch page (_pages/contacts.html, _data/contact.yml)
+   Boxes styled like the People cards.
+   ========================================================================== */
+
+.contact-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5em;
+  margin: 1em 0 2em;
+}
+
+.contact-box {
+  padding: 1.25em;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: $background-color;
+
+  p { margin: 0 0 0.5em; }
+}
+
+.contact-box__title {
+  margin: 0 0 0.5em;
+  font-size: 1.25rem * $serif-heading-scale;
+  color: $primary-color;
+}
+
+.contact-box__lines {
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.contact-box__link {
+  font-family: $sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  word-break: break-word;  // long email addresses wrap instead of overflowing
+}

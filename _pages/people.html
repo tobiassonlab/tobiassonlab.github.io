@@ -14,8 +14,8 @@ permalink: /people/
 
   <nav class="people-jump-nav" aria-label="People page sections">
     <a href="#lab-head">Lab Head</a>
-    {% if people.postdocs.size > 0 %}<a href="#postdocs">Postdocs</a>{% endif %}
-    {% if people.students.size > 0 %}<a href="#students">Students</a>{% endif %}
+    {% if people.postdocs.size > 0 %}<a href="#postdocs">Current Team</a>{% elsif people.graduates.size > 0 %}<a href="#graduates">Current Team</a>{% endif %}
+    {% if people.students.size > 0 %}<a href="#students">Students</a>{% elsif people.undergraduates.size > 0 %}<a href="#undergraduates">Students</a>{% endif %}
     {% if people.visitors.size > 0 %}<a href="#visitors">Visiting researchers</a>{% endif %}
     {% if people.alumni.size > 0 %}<a href="#alumni">Alumni</a>{% endif %}
     <a href="#join">Join us</a>
@@ -35,13 +35,13 @@ permalink: /people/
   </section>
   {% endif %}
 
-  {% if people.technicians.size > 0 %}
+  {% if people.graduates.size > 0 %}
   {% comment %}Follows straight on from Postdocs: no divider or repeated label,
      unless there are no postdocs to follow.{% endcomment %}
-  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="technicians">
+  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="graduates">
     {% unless people.postdocs.size > 0 %}<p class="eyebrow">Current team</p>{% endunless %}
-    <h2>Technicians</h2>
-    {% include people-grid.html people=people.technicians wide=true collapse=true %}
+    <h2>Other graduate researchers</h2>
+    {% include people-grid.html people=people.graduates wide=true collapse=true %}
   </section>
   {% endif %}
 
@@ -50,6 +50,15 @@ permalink: /people/
     <p class="eyebrow">Students</p>
     <h2>PhD and MSc students</h2>
     {% include people-grid.html people=people.students wide=true collapse=true %}
+  </section>
+  {% endif %}
+
+  {% if people.undergraduates.size > 0 %}
+  {% comment %}Follows straight on from PhD and MSc students, like graduates above.{% endcomment %}
+  <section class="people-section{% if people.students.size > 0 %} people-section--continued{% endif %}" id="undergraduates">
+    {% unless people.students.size > 0 %}<p class="eyebrow">Students</p>{% endunless %}
+    <h2>Undergraduates</h2>
+    {% include people-grid.html people=people.undergraduates wide=true collapse=true %}
   </section>
   {% endif %}
 

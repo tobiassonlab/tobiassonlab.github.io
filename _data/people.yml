@@ -76,7 +76,7 @@ postdocs:
       - label: Website
         url: https://example.org
 
-technicians:
+graduates:  # "Other graduate researchers"
   - name: Kira Senk
     role: Lab Technician
     photo:
@@ -86,7 +86,9 @@ technicians:
       - label: Website
         url: https://example.org
 
-students:
+students:  # PhD and MSc students
+
+undergraduates:
   - name: Juanita
     role: Bachelor student
     photo:

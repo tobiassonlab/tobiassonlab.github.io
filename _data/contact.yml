@@ -1,0 +1,35 @@
+# Boxes shown on /contacts/ (_pages/contacts.html), in this order.
+#
+# Fields:
+#   title : Box heading, e.g. "Email"
+#   lines : Text lines (an address goes one line per entry)
+#   link  : Optional {label, url}. Use "mailto:" for email addresses.
+#
+# A box with no lines and no link is hidden, so you can keep empty ones here.
+
+boxes:
+  - title: Email
+    lines:
+      - Victor Tobiasson, Principal Investigator
+    link:
+      label: Victor.Tobiasson@glasgow.ac.uk
+      url: mailto:Victor.Tobiasson@glasgow.ac.uk
+
+  - title: Mailing address
+    lines:
+      - School of Infection & Immunity
+      - Sir Graeme Davies Building
+      - 120 University Place
+      - University of Glasgow
+      - Glasgow G12 8TA, United Kingdom
+
+  - title: Physical address
+    lines:
+      - Room B612, Floor 6
+      - Sir Graeme Davies Building
+      - 120 University Place
+      - University of Glasgow
+      - Glasgow G12 8TA, United Kingdom
+    link:
+      label: University of Glasgow campus maps
+      url: https://www.gla.ac.uk/explore/maps/
