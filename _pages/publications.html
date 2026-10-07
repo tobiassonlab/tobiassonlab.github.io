@@ -1,14 +1,21 @@
 ---
 layout: splash
 title: "Publications"
-excerpt: "Peer-reviewed articles, book chapters and other work from the Tobiasson Lab."
+excerpt: "Peer-reviewed articles, preprints and other work from the Tobiasson Lab."
 header:
    overlay_color: "#ffffff"
    overlay_image: /assets/images/MSA2_desktop.png
 permalink: /publications/
 ---
 
+{% comment %}
+  The publication list is rendered by BibBase (https://bibbase.org) from
+  assets/publications.bib — add papers there. Profile links and featured
+  covers come from _data/publications.yml.
+{% endcomment %}
+
 {% assign pubs = site.data.publications %}
+{% capture bib_url %}{{ '/assets/publications.bib' | absolute_url }}{% endcapture %}
 
 <div class="pubs-page">
 
@@ -33,61 +40,11 @@ permalink: /publications/
   </section>
   {% endif %}
 
-  <div class="pub-search">
-    <label for="pub-search-input" class="screen-reader-text">Search publications</label>
-    <input type="search" id="pub-search-input" placeholder="Search by author, title, journal or year…" autocomplete="off">
-    <p class="pub-search__count" id="pub-search-count" aria-live="polite"></p>
-  </div>
-
-  {% if pubs.articles.size > 0 %}
-  <section class="people-section pub-section" id="articles">
+  <section class="people-section pub-bibbase" id="publications">
     <p class="people-section__eyebrow">Publications</p>
-    <h2>Peer-reviewed articles</h2>
-    {% include publication-list.html pubs=pubs.articles %}
+    <h2>All publications</h2>
+    <script src="https://bibbase.org/show?bib={{ bib_url | url_encode }}&jsonp=1&group0=year&sort=-month&theme=side&authorFirst=1&showSearch=1&nocache=1"></script>
+    <noscript><p>Enable JavaScript to see the publication list, or <a href="{{ '/assets/publications.bib' | relative_url }}">download it as BibTeX</a>.</p></noscript>
   </section>
-  {% endif %}
-
-  {% if pubs.chapters.size > 0 %}
-  <section class="people-section pub-section" id="chapters">
-    <p class="people-section__eyebrow">Publications</p>
-    <h2>Book chapters</h2>
-    {% include publication-list.html pubs=pubs.chapters %}
-  </section>
-  {% endif %}
-
-  {% if pubs.other.size > 0 %}
-  <section class="people-section pub-section" id="other">
-    <p class="people-section__eyebrow">Publications</p>
-    <h2>Other written work</h2>
-    {% include publication-list.html pubs=pubs.other %}
-  </section>
-  {% endif %}
 
 </div>
-
-<script>
-  (function () {
-    var input = document.getElementById("pub-search-input");
-    var count = document.getElementById("pub-search-count");
-    var entries = document.querySelectorAll(".pub-entry");
-
-    input.addEventListener("input", function () {
-      var terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
-      var shown = 0;
-
-      entries.forEach(function (entry) {
-        var text = entry.textContent.toLowerCase();
-        var match = terms.every(function (t) { return text.indexOf(t) !== -1; });
-        entry.hidden = !match;
-        if (match) shown++;
-      });
-
-      // Hide year groups and sections left with no visible entries
-      document.querySelectorAll(".pub-year, .pub-section").forEach(function (group) {
-        group.hidden = !group.querySelector(".pub-entry:not([hidden])");
-      });
-
-      count.textContent = terms.length ? shown + " of " + entries.length + " publications" : "";
-    });
-  })();
-</script>
