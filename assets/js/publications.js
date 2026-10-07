@@ -130,8 +130,8 @@
 
   function formatAuthors(field, highlight) {
     var names = (field || "").split(/\s+and\s+/i).filter(Boolean).map(parseName);
-    var out = names.map(function (n, idx) {
-      var text = idx === 0 ? n.last + ", " + n.initials : n.initials + " " + n.last;
+    var out = names.map(function (n) {
+      var text = n.initials ? n.last + ", " + n.initials : n.last;
       text = escapeHtml(text);
       var key = (n.first.charAt(0) + " " + n.last).toLowerCase();
       return highlight.indexOf(key) !== -1 ? "<strong>" + text + "</strong>" : text;
@@ -158,7 +158,7 @@
     if (entry.type === "incollection" || entry.type === "inbook") {
       var v = "In: <em>" + latexToHtml(f.booktitle || f.title) + "</em>";
       if (f.editor) v += " (eds. " + escapeHtml(f.editor.split(/\s+and\s+/i).map(function (e) {
-        var n = parseName(e); return n.initials + " " + n.last;
+        var n = parseName(e); return n.last + ", " + n.initials;
       }).join(", ")) + ")";
       if (f.publisher) v += ". " + latexToHtml(f.publisher);
       return v;
@@ -171,7 +171,7 @@
     return details ? v2 + " " + details : v2;
   }
 
-  function renderEntry(entry, highlight) {
+  function renderEntry(entry, highlight, number) {
     var f = entry.fields;
     var doi = (f.doi || "").replace(/^https?:\/\/(dx\.)?doi\.org\//, "");
     var title = latexToHtml(f.title).replace(/\.$/, "");
@@ -188,7 +188,8 @@
     if (f.url && !/doi\.org\//.test(f.url)) links.push('<a href="' + encodeURI(f.url) + '" target="_blank" rel="noopener">Link</a>');
     if (links.length) html += '<span class="pub-entry__links">' + links.join("") + "</span>";
 
-    return '<li class="pub-entry">' + html + "</li>";
+    var num = number ? '<span class="pub-entry__num">' + number + ".</span>" : "";
+    return '<li class="pub-entry">' + num + html + "</li>";
   }
 
   var SECTIONS = [
@@ -215,14 +216,18 @@
       html += '<section class="people-section pub-section" id="' + sec[0] + '">' +
               '<p class="people-section__eyebrow">Publications</p><h2>' + sec[1] + "</h2>";
       var year = null;
-      list.forEach(function (e) {
+      // Numbered oldest = 1 within each section, so a paper keeps its number
+      // when newer ones are added and when the search filter hides others.
+      // Preprints are not numbered.
+      var numbered = sec[0] !== "preprints";
+      list.forEach(function (e, idx) {
         if (e.fields.year !== year) {
           if (year !== null) html += "</ol></div>";
           year = e.fields.year;
           html += '<div class="pub-year"><h3 class="pub-year__label">' + escapeHtml(year || "In press") +
                   '</h3><ol class="pub-list">';
         }
-        html += renderEntry(e, highlight);
+        html += renderEntry(e, highlight, numbered ? list.length - idx : null);
       });
       html += "</ol></div></section>";
     });

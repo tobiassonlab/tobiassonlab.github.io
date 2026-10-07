@@ -5,7 +5,7 @@
 #
 # lab_members : Names shown in bold in author lists, as "First Last". Matched
 #               on first initial + surname, so "Victor Tobiasson" also bolds
-#               "Tobiasson, V." and "V.A. Tobiasson".
+#               "Tobiasson, V." and "Tobiasson, V.A.".
 # profiles : Links shown under the page title (list of {label, url}).
 # featured : Optional cover images shown above the list. Leave empty ([]) to hide.
 #            image   : Path under assets/, e.g. /assets/images/covers/nature-2026.jpg
@@ -14,6 +14,8 @@
 
 lab_members:
   - Victor Tobiasson
+  - Genis Valentin Gese
+  - Joaquim Filipe Faria
 
 profiles:
   - label: Google Scholar

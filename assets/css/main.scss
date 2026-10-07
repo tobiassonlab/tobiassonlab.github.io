@@ -6,7 +6,26 @@ search: false
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+/* Site fonts: Montserrat for body text, bold Playfair Display for headings and
+   titles. Both are loaded from Google Fonts in _includes/head/custom.html. */
+$sans-serif: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+$serif: "Playfair Display", Georgia, serif;
+$global-font-family: $sans-serif;
+$header-font-family: $serif;
+$caption-font-family: $sans-serif;  // image captions stay in Montserrat
+
 @import "minimal-mistakes"; // main partials
+
+/* Headings, plus titles that the theme sets in $sans-serif, in bold Playfair Display */
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.page__title,
+.archive__item-title,
+.person-card__name,
+.pub-year__label {
+  font-family: $header-font-family;
+  font-weight: 700;
+}
 
 /* ==========================================================================
    People page (_pages/people.html, _includes/people-grid.html)
@@ -253,6 +272,13 @@ search: false
   line-height: 1.5;
 
   &:hover { border-left-color: $primary-color; }
+}
+
+.pub-entry__num {
+  margin-right: 0.4em;
+  font-family: $sans-serif;
+  font-weight: bold;
+  color: $primary-color;
 }
 
 .pub-entry__note {
