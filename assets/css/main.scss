@@ -16,7 +16,6 @@ $caption-font-family: $sans-serif;  // image captions stay in Montserrat
 
 /* Font size scaling relative to the theme defaults */
 $serif-heading-scale: 1.2;  // Abril Fatface headings and titles
-$page-title-scale: 0.8;     // Montserrat page main titles
 
 // Theme heading sizes (h1-h6), scaled up for Abril Fatface
 $h-size-1: 1.563em * $serif-heading-scale;
@@ -45,27 +44,20 @@ h1, h2, h3, h4, h5, h6,
   font-family: $sans-serif;
   font-weight: 700;
   color: $primary-color;
-  text-shadow: none;  // the theme's shadow is meant for white text
+  text-shadow: 1px 1px 4px rgba(#000, 0.5);
 }
 
-// Sizes: theme defaults x $page-title-scale (h1 on plain pages, larger over the header image)
+// Theme default size on every page. Titles are h1, so undo the 1.2x heading
+// scaling for pages without a header image (the overlay sets its own size).
 .page__title {
-  font-size: 1.563em * $page-title-scale;
-}
-
-.page__hero--overlay .page__title {
-  font-size: $type-size-2 * $page-title-scale;
-
-  @include breakpoint($small) {
-    font-size: $type-size-1 * $page-title-scale;
-  }
+  font-size: 1.563em;
 }
 
 /* Page excerpts (the line under the title) */
 .page__lead,
 .page__hero--overlay .page__lead {
   color: #000;
-  text-shadow: none;
+  text-shadow: 1px 1px 4px rgba(#000, 0.5);
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
@@ -111,7 +103,7 @@ h1, h2, h3, h4, h5, h6,
   scroll-margin-top: 4em;
 
   h2 {
-    margin-top: 0.2em;
+    margin-top: 0;
     border-bottom: none;
   }
 }
@@ -125,7 +117,8 @@ h1, h2, h3, h4, h5, h6,
 .people-section__eyebrow {
   margin: 0;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: $type-size-7 * 0.8;
+  line-height: 1.2;
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
