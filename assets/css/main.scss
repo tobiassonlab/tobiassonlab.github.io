@@ -82,6 +82,12 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+/* A section that continues the previous one (e.g. Technicians after Postdocs) */
+.people-section--continued {
+  padding-top: 0;
+  border-top: none;
+}
+
 .people-section__eyebrow {
   margin: 0;
   font-family: $sans-serif;

@@ -26,9 +26,9 @@ pi:
       - label: Google Scholar
         url: https://scholar.google.com/
       - label: ORCID
-        url: https://orcid.org/
+        url: https://orcid.org/0000-0001-8920-017X
       - label: Email
-        url: mailto:someone@example.org
+        url: Victor.Tobiasson@glasgow.ac.uk
 
 postdocs:
   - name: Genís Valentín Gesé
@@ -59,18 +59,14 @@ technicians:
       - label: Website
         url: https://example.org
 
-#students:
-#  - name: Juanita
-#    role: BSc student
-#    photo:
-#    bio: >
-#      Thesis topic in a sentence or two.
-#  - name: Student Two
-#    role: MSc student
-#    photo:
-#    bio: >
-#      Project summary.
-#
+students:
+  - name: Juanita
+    role: Bachelor student
+    photo:
+    bio: >
+      Thesis topic in a sentence or two.
+
+
 #visitors:
 #  - name: Visitor Name
 #    role: Visiting PhD student, Some University

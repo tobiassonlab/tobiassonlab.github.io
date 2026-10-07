@@ -34,8 +34,10 @@ header:
   {% endif %}
 
   {% if people.technicians.size > 0 %}
-  <section class="people-section" id="technicians">
-    <p class="people-section__eyebrow">Current team</p>
+  {% comment %}Follows straight on from Postdocs: no divider or repeated label,
+     unless there are no postdocs to follow.{% endcomment %}
+  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="technicians">
+    {% unless people.postdocs.size > 0 %}<p class="people-section__eyebrow">Current team</p>{% endunless %}
     <h2>Technicians</h2>
     {% include people-grid.html people=people.technicians %}
   </section>
