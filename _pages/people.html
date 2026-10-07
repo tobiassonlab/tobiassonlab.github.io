@@ -11,7 +11,7 @@ header:
 <div class="people-page">
 
   <nav class="people-jump-nav" aria-label="People page sections">
-    <a href="#lab-head">Lab head</a>
+    <a href="#lab-head">Lab Head</a>
     {% if people.postdocs.size > 0 %}<a href="#postdocs">Postdocs</a>{% endif %}
     {% if people.students.size > 0 %}<a href="#students">Students</a>{% endif %}
     {% if people.visitors.size > 0 %}<a href="#visitors">Visiting researchers</a>{% endif %}
@@ -20,7 +20,7 @@ header:
   </nav>
 
   <section class="people-section" id="lab-head">
-    <p class="people-section__eyebrow">Principal investigator</p>
+    <p class="people-section__eyebrow">Principal Investigator</p>
     <h2>Lab head</h2>
     {% include people-grid.html people=people.pi wide=true %}
   </section>

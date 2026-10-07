@@ -155,3 +155,118 @@ search: false
     color: $muted-text-color;
   }
 }
+
+/* ==========================================================================
+   Publications page (_pages/publications.html, _includes/publication-list.html)
+   Reuses .people-jump-nav, .people-section and .people-section__eyebrow above.
+   ========================================================================== */
+
+.pubs-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em 2em;
+}
+
+.pub-covers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.25em;
+}
+
+.pub-cover {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  color: $muted-text-color;
+  text-decoration: none;
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    transition: transform 0.2s;
+  }
+
+  &:hover img { transform: translateY(-3px); }
+}
+
+.pub-search {
+  padding: 1.5em 0 0.5em;
+  border-top: 1px solid $border-color;
+
+  input {
+    width: 100%;
+    margin: 0;
+    padding: 0.6em 0.9em;
+    font-size: $type-size-6;
+  }
+}
+
+.pub-search__count {
+  margin: 0.5em 0 0;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  color: $muted-text-color;
+}
+
+.pub-year {
+  @include breakpoint($medium) {
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    gap: 1em;
+  }
+
+  &[hidden] { display: none; }
+}
+
+.pub-year__label {
+  margin: 1em 0 0.5em;
+  font-size: $type-size-4;
+  color: $primary-color;
+}
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoint($medium) { margin-top: 1em; }
+}
+
+.pub-entry {
+  margin: 0 0 1em;
+  padding-left: 1em;
+  border-left: 2px solid $border-color;
+  font-size: $type-size-6;
+  line-height: 1.5;
+
+  &:hover { border-left-color: $primary-color; }
+}
+
+.pub-entry__note {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0 0.6em;
+  border-radius: 999px;
+  background: mix($primary-color, $background-color, 15%);
+  font-family: $sans-serif;
+  font-size: $type-size-8;
+  color: $primary-color;
+}
+
+.pub-entry__links {
+  display: block;
+  margin-top: 0.2em;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+
+  a + a::before {
+    content: "·";
+    margin: 0 0.4em;
+    color: $muted-text-color;
+  }
+}

@@ -1,0 +1,64 @@
+# Publications shown on /publications/ (_pages/publications.html).
+#
+# lab_members : Author names exactly as written in `authors` below; each match
+#               is shown in bold. Use the same spelling every time.
+# profiles    : Links shown under the page title (list of {label, url}).
+# featured    : Optional cover images shown at the top. Leave empty ([]) to hide.
+#               image : Path under assets/, e.g. /assets/images/covers/mbe-2025.jpg
+#                       (portrait, ~400 px wide)
+#               caption, url
+#
+# articles / chapters / other : one entry per publication. Fields:
+#   authors : "Surname, A.B., C.D. Surname, and E. Surname"
+#   year    : 2025  (entries are grouped by year, newest first)
+#   title   : Paper title (no trailing full stop)
+#   journal : Journal or book name (shown in italics)
+#   details : Volume, issue and pages, e.g. "42(3): 112–128"   (optional)
+#   doi     : Bare DOI, e.g. 10.1093/molbev/msad001           (optional)
+#   links   : List of {label, url}, e.g. PDF, Preprint, Code    (optional)
+#   note    : Short highlight, e.g. "Cover article"             (optional)
+#
+# Empty sections are hidden automatically.
+
+lab_members:
+  - Tobiasson, V.
+  - V. Tobiasson
+
+profiles:
+  - label: Google Scholar
+    url: https://scholar.google.com/
+  - label: ORCID
+    url: https://orcid.org/
+
+featured: []
+#  - image: /assets/images/covers/example-cover.jpg
+#    caption: Journal Name, 2025
+#    url: https://doi.org/10.0000/example
+
+articles:
+  - authors: Tobiasson, V., A.N. Author, and B. Author
+    year: 2025
+    title: Example title of a peer-reviewed article
+    journal: Journal Name
+    details: "1(1): 1–10"
+    doi: 10.0000/example.0001
+    links:
+      - label: PDF
+        url: /assets/pdf/example.pdf
+    note: Cover article
+
+  - authors: Author, A.N., V. Tobiasson, and C. Author
+    year: 2024
+    title: A second example article showing how co-authorship is highlighted
+    journal: Another Journal
+    details: "12: e0002"
+    doi: 10.0000/example.0002
+
+chapters: []
+#  - authors: Tobiasson, V.
+#    year: 2023
+#    title: Chapter title
+#    journal: "In: Book Title (eds. A. Editor and B. Editor). Publisher, City"
+#    details: "pp. 1–20"
+
+other: []

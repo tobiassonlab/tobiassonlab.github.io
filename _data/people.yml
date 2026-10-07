@@ -32,7 +32,7 @@ pi:
 
 postdocs:
   - name: Genís Valentín Gesé
-    role: Postdoctoral Research Assistant
+    role: Research Assistant
     photo:
     bio: >
       One or two sentences on what this person works on.
@@ -41,7 +41,7 @@ postdocs:
         url: https://example.org
 
   - name: Joaquim Filipe Faria
-    role: Postdoctoral Research Assistant
+    role: Research Assistant
     photo:
     bio: >
       One or two sentences on what this person works on.

@@ -1,0 +1,93 @@
+---
+layout: splash
+title: "Publications"
+excerpt: "Peer-reviewed articles, book chapters and other work from the Tobiasson Lab."
+header:
+   overlay_color: "#ffffff"
+   overlay_image: /assets/images/MSA2_desktop.png
+permalink: /publications/
+---
+
+{% assign pubs = site.data.publications %}
+
+<div class="pubs-page">
+
+  {% if pubs.profiles.size > 0 %}
+  <nav class="people-jump-nav" aria-label="Research profiles">
+    {% for profile in pubs.profiles %}<a href="{{ profile.url }}" target="_blank" rel="noopener">{{ profile.label }}</a>{% endfor %}
+  </nav>
+  {% endif %}
+
+  {% if pubs.featured.size > 0 %}
+  <section class="people-section" id="featured">
+    <p class="people-section__eyebrow">Highlights</p>
+    <h2>Featured research</h2>
+    <div class="pub-covers">
+      {% for cover in pubs.featured %}
+      <a class="pub-cover" href="{{ cover.url }}" target="_blank" rel="noopener">
+        <img src="{{ cover.image | relative_url }}" alt="{{ cover.caption }}" loading="lazy">
+        <span>{{ cover.caption }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="pub-search">
+    <label for="pub-search-input" class="screen-reader-text">Search publications</label>
+    <input type="search" id="pub-search-input" placeholder="Search by author, title, journal or year…" autocomplete="off">
+    <p class="pub-search__count" id="pub-search-count" aria-live="polite"></p>
+  </div>
+
+  {% if pubs.articles.size > 0 %}
+  <section class="people-section pub-section" id="articles">
+    <p class="people-section__eyebrow">Publications</p>
+    <h2>Peer-reviewed articles</h2>
+    {% include publication-list.html pubs=pubs.articles %}
+  </section>
+  {% endif %}
+
+  {% if pubs.chapters.size > 0 %}
+  <section class="people-section pub-section" id="chapters">
+    <p class="people-section__eyebrow">Publications</p>
+    <h2>Book chapters</h2>
+    {% include publication-list.html pubs=pubs.chapters %}
+  </section>
+  {% endif %}
+
+  {% if pubs.other.size > 0 %}
+  <section class="people-section pub-section" id="other">
+    <p class="people-section__eyebrow">Publications</p>
+    <h2>Other written work</h2>
+    {% include publication-list.html pubs=pubs.other %}
+  </section>
+  {% endif %}
+
+</div>
+
+<script>
+  (function () {
+    var input = document.getElementById("pub-search-input");
+    var count = document.getElementById("pub-search-count");
+    var entries = document.querySelectorAll(".pub-entry");
+
+    input.addEventListener("input", function () {
+      var terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      var shown = 0;
+
+      entries.forEach(function (entry) {
+        var text = entry.textContent.toLowerCase();
+        var match = terms.every(function (t) { return text.indexOf(t) !== -1; });
+        entry.hidden = !match;
+        if (match) shown++;
+      });
+
+      // Hide year groups and sections left with no visible entries
+      document.querySelectorAll(".pub-year, .pub-section").forEach(function (group) {
+        group.hidden = !group.querySelector(".pub-entry:not([hidden])");
+      });
+
+      count.textContent = terms.length ? shown + " of " + entries.length + " publications" : "";
+    });
+  })();
+</script>
