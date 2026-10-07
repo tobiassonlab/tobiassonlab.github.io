@@ -116,11 +116,13 @@ h1, h2, h3, h4, h5, h6,
   border-top: none;
 }
 
-/* Eyebrow: small blue uppercase label above a section heading (used site-wide) */
-.eyebrow {
+/* Eyebrow: small blue uppercase label above a section heading (used site-wide).
+   "p.eyebrow" is needed to beat the theme's ".page__content p { font-size: 1em }". */
+.eyebrow,
+p.eyebrow {
   margin: 0 0 -0.4em;  // pulls the heading below closer
   font-family: $sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   line-height: 0.8;
   font-weight: bold;
   letter-spacing: 0.08em;
@@ -187,7 +189,7 @@ h1, h2, h3, h4, h5, h6,
   font-size: 0.6rem;
 }
 
-.person-card__links {
+p.person-card__links {  // p.: beats the theme's .page__content p size
   margin-top: auto;
   font-family: $sans-serif;
   font-size: 0.6rem;
@@ -332,14 +334,14 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.pub-search__count {
+p.pub-search__count {
   margin: 0.5em 0 0;
   font-family: $sans-serif;
   font-size: 0.6875rem;
   color: $muted-text-color;
 }
 
-.pub-loading {
+p.pub-loading {
   padding: 2em 0;
   font-family: $sans-serif;
   font-size: 0.75rem;
@@ -371,7 +373,7 @@ h1, h2, h3, h4, h5, h6,
   @include breakpoint($medium) { margin-top: 1em; }
 }
 
-.pub-entry {
+li.pub-entry {  // li.: beats the theme's .page__content li size
   margin: 0 0 1em;
   padding-left: 1em;
   border-left: 2px solid $border-color;
@@ -515,12 +517,12 @@ h1, h2, h3, h4, h5, h6,
   color: #fff;
 }
 
-.contact-box__lines {
+p.contact-box__lines {
   font-size: 0.6rem;
   line-height: 1.6;
 }
 
-.contact-box__link {
+p.contact-box__link {
   font-family: $sans-serif;
   font-size: 0.6rem;
   font-weight: bold;
