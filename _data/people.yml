@@ -28,7 +28,7 @@ pi:
       - label: ORCID
         url: https://orcid.org/0000-0001-8920-017X
       - label: Email
-        url: Victor.Tobiasson@glasgow.ac.uk
+        url: mailto:Victor.Tobiasson@glasgow.ac.uk
 
 postdocs:
   - name: Genís Valentín Gesé
@@ -44,7 +44,34 @@ postdocs:
     role: Research Assistant
     photo:
     bio: >
-      One or two sentences on what this person works on.
+      Looking forward to building a career in Scientific Research, with keen
+      interest in the fields of Biodiversity, Genomics and Evolution. As part of
+      my academic education and training, I have worked with international
+      researchers and specialists in the topics of Herpetology and Parasitology
+      and developed knowledge and experience across more transversal subjects
+      such as laboratory methods, animal welfare and conservation regulations,
+      statistics and programming.
+
+
+      I am currently affiliated at the School of Infection and Immunity,
+      University of Glasgow, as a Research Assistant for the Tobiasson Lab,
+      where we will be trying to unravel the evolution of ribosomal DNA in
+      myzozoan parasites and other eukaryotes.
+
+
+      I got my Ph.D. in Biodiversity, Genetics, and Evolution from the
+      University of Porto in December 2025, with the thesis "In the blood:
+      Influence of endoparasites on host behaviour and interactions," in which
+      I analyse the effect of blood parasite infection on the behaviour and
+      thermoregulatory processes of lizards, and study how climate change in
+      the past decade has affected these host-parasite relationships in lizard
+      populations from Portugal, Morocco and the Canary Islands.
+
+
+      Side by side with Science, I am involved in personal and collective
+      projects in the fields of Fine Arts and Music, allowing me to broaden my
+      horizons and to bring different approaches and ways of thinking into my
+      work and living.
     links:
       - label: Website
         url: https://example.org

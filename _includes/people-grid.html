@@ -2,8 +2,10 @@
   Card grid for the People page.
   Usage: {% include people-grid.html people=site.data.people.students %}
   Optional: wide=true for horizontal cards (photo beside the text), one per row.
+            collapse=true (with wide) caps each card at the photo's height; longer
+            bios fade out with a "Show more" button (script in _pages/people.html).
 {% endcomment %}
-<div class="people-grid{% if include.wide %} people-grid--wide{% endif %}">
+<div class="people-grid{% if include.wide %} people-grid--wide{% endif %}{% if include.collapse %} people-grid--collapse{% endif %}">
 {% for person in include.people %}
   <article class="person-card">
     {% if person.photo %}
@@ -15,7 +17,8 @@
     <div class="person-card__body">
       <h3 class="person-card__name">{{ person.name }}{% if person.years %} <span class="person-card__years">{{ person.years }}</span>{% endif %}</h3>
       {% if person.role %}<p class="person-card__role">{{ person.role }}</p>{% endif %}
-      {% if person.bio %}{{ person.bio | markdownify }}{% endif %}
+      {% if person.bio %}<div class="person-card__bio">{{ person.bio | markdownify }}</div>{% endif %}
+      {% if include.collapse and person.bio %}<button type="button" class="person-card__more" aria-expanded="false" hidden>Show more</button>{% endif %}
       {% if person.links %}
       <p class="person-card__links">
         {% for link in person.links %}<a href="{{ link.url }}"{% unless link.url contains "mailto:" %} target="_blank" rel="noopener"{% endunless %}>{{ link.label }}</a>{% unless forloop.last %}<span aria-hidden="true"> · </span>{% endunless %}{% endfor %}

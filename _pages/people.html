@@ -31,15 +31,17 @@ permalink: /people/
   <section class="people-section" id="postdocs">
     <p class="eyebrow">Current team</p>
     <h2>Postdocs</h2>
-    {% include people-grid.html people=people.postdocs wide=true %}
+    {% include people-grid.html people=people.postdocs wide=true collapse=true %}
   </section>
   {% endif %}
 
   {% if people.technicians.size > 0 %}
-  <section class="people-section" id="technicians">
-    <p class="eyebrow">Current team</p>
+  {% comment %}Follows straight on from Postdocs: no divider or repeated label,
+     unless there are no postdocs to follow.{% endcomment %}
+  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="technicians">
+    {% unless people.postdocs.size > 0 %}<p class="eyebrow">Current team</p>{% endunless %}
     <h2>Technicians</h2>
-    {% include people-grid.html people=people.technicians wide=true %}
+    {% include people-grid.html people=people.technicians wide=true collapse=true %}
   </section>
   {% endif %}
 
@@ -47,7 +49,7 @@ permalink: /people/
   <section class="people-section" id="students">
     <p class="eyebrow">Students</p>
     <h2>PhD and MSc students</h2>
-    {% include people-grid.html people=people.students wide=true %}
+    {% include people-grid.html people=people.students wide=true collapse=true %}
   </section>
   {% endif %}
 
@@ -55,7 +57,7 @@ permalink: /people/
   <section class="people-section" id="visitors">
     <p class="eyebrow">Collaborators</p>
     <h2>Visiting researchers</h2>
-    {% include people-grid.html people=people.visitors wide=true %}
+    {% include people-grid.html people=people.visitors wide=true collapse=true %}
   </section>
   {% endif %}
 
@@ -79,3 +81,38 @@ permalink: /people/
   </section>
 
 </div>
+
+<script>
+  /* Collapsible bios: show "Show more" only on cards whose bio is cut off
+     (cards are capped at the photo's height on wider screens; see main.scss). */
+  (function () {
+    var cards = document.querySelectorAll(".people-grid--collapse .person-card");
+
+    function check() {
+      cards.forEach(function (card) {
+        if (card.classList.contains("is-expanded")) return;
+        var bio = card.querySelector(".person-card__bio");
+        var button = card.querySelector(".person-card__more");
+        if (!bio || !button) return;
+        var cut = bio.scrollHeight > bio.clientHeight + 1;
+        card.classList.toggle("is-truncated", cut);
+        button.hidden = !cut;
+      });
+    }
+
+    cards.forEach(function (card) {
+      var button = card.querySelector(".person-card__more");
+      if (!button) return;
+      button.addEventListener("click", function () {
+        var expanded = card.classList.toggle("is-expanded");
+        button.textContent = expanded ? "Show less" : "Show more";
+        button.setAttribute("aria-expanded", expanded);
+        if (!expanded) check();
+      });
+    });
+
+    window.addEventListener("load", check);
+    window.addEventListener("resize", check);
+    check();
+  })();
+</script>
