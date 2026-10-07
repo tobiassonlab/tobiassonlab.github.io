@@ -1,9 +1,11 @@
 ---
 layout: splash
 title: "People"
-excerpt: "The researchers, students, visitors and alumni of the Tobiasson Lab."
-permalink: /people/
+excerpt: "Meet the researchers, students, visitors and (eventually) alumni of the Tobiasson Lab."
 header:
+   overlay_color: "#ffffff"
+   overlay_image: /assets/images/MSA2_desktop.png
+permalink: /people/
 ---
 
 {% assign people = site.data.people %}
@@ -29,17 +31,15 @@ header:
   <section class="people-section" id="postdocs">
     <p class="people-section__eyebrow">Current team</p>
     <h2>Postdocs</h2>
-    {% include people-grid.html people=people.postdocs %}
+    {% include people-grid.html people=people.postdocs wide=true %}
   </section>
   {% endif %}
 
   {% if people.technicians.size > 0 %}
-  {% comment %}Follows straight on from Postdocs: no divider or repeated label,
-     unless there are no postdocs to follow.{% endcomment %}
-  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="technicians">
-    {% unless people.postdocs.size > 0 %}<p class="people-section__eyebrow">Current team</p>{% endunless %}
+  <section class="people-section" id="technicians">
+    <p class="people-section__eyebrow">Current team</p>
     <h2>Technicians</h2>
-    {% include people-grid.html people=people.technicians %}
+    {% include people-grid.html people=people.technicians wide=true %}
   </section>
   {% endif %}
 
@@ -47,7 +47,7 @@ header:
   <section class="people-section" id="students">
     <p class="people-section__eyebrow">Current team</p>
     <h2>PhD and MSc students</h2>
-    {% include people-grid.html people=people.students %}
+    {% include people-grid.html people=people.students wide=true %}
   </section>
   {% endif %}
 
@@ -55,7 +55,7 @@ header:
   <section class="people-section" id="visitors">
     <p class="people-section__eyebrow">Collaborators</p>
     <h2>Visiting researchers</h2>
-    {% include people-grid.html people=people.visitors %}
+    {% include people-grid.html people=people.visitors wide=true %}
   </section>
   {% endif %}
 

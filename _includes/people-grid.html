@@ -1,7 +1,7 @@
 {% comment %}
   Card grid for the People page.
   Usage: {% include people-grid.html people=site.data.people.students %}
-  Optional: wide=true for a single large card (lab head).
+  Optional: wide=true for horizontal cards (photo beside the text), one per row.
 {% endcomment %}
 <div class="people-grid{% if include.wide %} people-grid--wide{% endif %}">
 {% for person in include.people %}

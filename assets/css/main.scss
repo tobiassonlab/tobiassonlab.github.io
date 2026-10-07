@@ -14,6 +14,18 @@ $global-font-family: $sans-serif;
 $header-font-family: $serif;
 $caption-font-family: $sans-serif;  // image captions stay in Montserrat
 
+/* Font size scaling relative to the theme defaults */
+$serif-heading-scale: 1.2;  // Abril Fatface headings and titles
+$page-title-scale: 0.8;     // Montserrat page main titles
+
+// Theme heading sizes (h1-h6), scaled up for Abril Fatface
+$h-size-1: 1.563em * $serif-heading-scale;
+$h-size-2: 1.25em * $serif-heading-scale;
+$h-size-3: 1.125em * $serif-heading-scale;
+$h-size-4: 1.0625em * $serif-heading-scale;
+$h-size-5: 1.03125em * $serif-heading-scale;
+$h-size-6: 1em * $serif-heading-scale;
+
 @import "minimal-mistakes"; // main partials
 
 /* Headings, plus titles that the theme sets in $sans-serif, in Abril Fatface.
@@ -32,6 +44,28 @@ h1, h2, h3, h4, h5, h6,
 .page__hero--overlay .page__title {
   font-family: $sans-serif;
   font-weight: 700;
+  color: $primary-color;
+  text-shadow: none;  // the theme's shadow is meant for white text
+}
+
+// Sizes: theme defaults x $page-title-scale (h1 on plain pages, larger over the header image)
+.page__title {
+  font-size: 1.563em * $page-title-scale;
+}
+
+.page__hero--overlay .page__title {
+  font-size: $type-size-2 * $page-title-scale;
+
+  @include breakpoint($small) {
+    font-size: $type-size-1 * $page-title-scale;
+  }
+}
+
+/* Page excerpts (the line under the title) */
+.page__lead,
+.page__hero--overlay .page__lead {
+  color: #000;
+  text-shadow: none;
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
@@ -137,7 +171,7 @@ h1, h2, h3, h4, h5, h6,
 
 .person-card__name {
   margin: 0 0 0.2em;
-  font-size: $type-size-4;
+  font-size: $type-size-4 * $serif-heading-scale;
 }
 
 .person-card__years {
@@ -271,7 +305,7 @@ h1, h2, h3, h4, h5, h6,
 
 .pub-year__label {
   margin: 1em 0 0.5em;
-  font-size: $type-size-4;
+  font-size: $type-size-4 * $serif-heading-scale;
   color: $primary-color;
 }
 
