@@ -6,24 +6,31 @@ search: false
 @charset "utf-8";
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-/* Site fonts: Montserrat for body text, bold Playfair Display for headings and
-   titles. Both are loaded from Google Fonts in _includes/head/custom.html. */
+/* Site fonts: Montserrat for body text and page main titles, Abril Fatface for
+   headings. Both are loaded from Google Fonts in _includes/head/custom.html. */
 $sans-serif: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
-$serif: "Playfair Display", Georgia, serif;
+$serif: "Abril Fatface", Georgia, serif;
 $global-font-family: $sans-serif;
 $header-font-family: $serif;
 $caption-font-family: $sans-serif;  // image captions stay in Montserrat
 
 @import "minimal-mistakes"; // main partials
 
-/* Headings, plus titles that the theme sets in $sans-serif, in bold Playfair Display */
+/* Headings, plus titles that the theme sets in $sans-serif, in Abril Fatface.
+   It has a single (heavy) weight, so keep font-weight normal to avoid faux bold. */
 h1, h2, h3, h4, h5, h6,
 .site-title,
-.page__title,
 .archive__item-title,
 .person-card__name,
 .pub-year__label {
   font-family: $header-font-family;
+  font-weight: 400;
+}
+
+/* Page main titles (the big title on each page / over the header image) */
+.page__title,
+.page__hero--overlay .page__title {
+  font-family: $sans-serif;
   font-weight: 700;
 }
 
