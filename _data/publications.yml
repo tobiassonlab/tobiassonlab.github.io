@@ -1,13 +1,19 @@
 # Settings for /publications/ (_pages/publications.html).
 #
 # The publication list itself comes from assets/publications.bib (rendered by
-# BibBase) — add papers there, not here.
+# assets/js/publications.js) — add papers there, not here.
 #
+# lab_members : Names shown in bold in author lists, as "First Last". Matched
+#               on first initial + surname, so "Victor Tobiasson" also bolds
+#               "Tobiasson, V." and "V.A. Tobiasson".
 # profiles : Links shown under the page title (list of {label, url}).
 # featured : Optional cover images shown above the list. Leave empty ([]) to hide.
 #            image   : Path under assets/, e.g. /assets/images/covers/nature-2026.jpg
 #                      (portrait, ~400 px wide)
 #            caption, url
+
+lab_members:
+  - Victor Tobiasson
 
 profiles:
   - label: Google Scholar

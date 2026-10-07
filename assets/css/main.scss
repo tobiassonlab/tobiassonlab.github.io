@@ -157,7 +157,7 @@ search: false
 }
 
 /* ==========================================================================
-   Publications page (_pages/publications.html; the list itself is styled by BibBase)
+   Publications page (_pages/publications.html, assets/js/publications.js)
    Reuses .people-jump-nav, .people-section and .people-section__eyebrow above.
    ========================================================================== */
 
@@ -192,4 +192,89 @@ search: false
   }
 
   &:hover img { transform: translateY(-3px); }
+}
+
+.pub-search {
+  padding: 1.5em 0 0.5em;
+  border-top: 1px solid $border-color;
+
+  input {
+    width: 100%;
+    margin: 0;
+    padding: 0.6em 0.9em;
+    font-size: $type-size-6;
+  }
+}
+
+.pub-search__count {
+  margin: 0.5em 0 0;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  color: $muted-text-color;
+}
+
+.pub-loading {
+  padding: 2em 0;
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  color: $muted-text-color;
+}
+
+.pub-section[hidden],
+.pub-year[hidden] { display: none; }
+
+.pub-year {
+  @include breakpoint($medium) {
+    display: grid;
+    grid-template-columns: 5em 1fr;
+    gap: 1em;
+  }
+}
+
+.pub-year__label {
+  margin: 1em 0 0.5em;
+  font-size: $type-size-4;
+  color: $primary-color;
+}
+
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoint($medium) { margin-top: 1em; }
+}
+
+.pub-entry {
+  margin: 0 0 1em;
+  padding-left: 1em;
+  border-left: 2px solid $border-color;
+  font-size: $type-size-6;
+  line-height: 1.5;
+
+  &:hover { border-left-color: $primary-color; }
+}
+
+.pub-entry__note {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0 0.6em;
+  border-radius: 999px;
+  background: mix($primary-color, $background-color, 15%);
+  font-family: $sans-serif;
+  font-size: $type-size-8;
+  color: $primary-color;
+}
+
+.pub-entry__links {
+  display: block;
+  margin-top: 0.2em;
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+
+  a + a::before {
+    content: "·";
+    margin: 0 0.4em;
+    color: $muted-text-color;
+  }
 }

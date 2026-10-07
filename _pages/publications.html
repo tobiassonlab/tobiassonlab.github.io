@@ -9,13 +9,12 @@ permalink: /publications/
 ---
 
 {% comment %}
-  The publication list is rendered by BibBase (https://bibbase.org) from
-  assets/publications.bib — add papers there. Profile links and featured
-  covers come from _data/publications.yml.
+  The publication list is built in the browser by assets/js/publications.js
+  from assets/publications.bib — add papers there. Profile links, featured
+  covers and lab members (shown in bold) come from _data/publications.yml.
 {% endcomment %}
 
 {% assign pubs = site.data.publications %}
-{% capture bib_url %}{{ '/assets/publications.bib' | absolute_url }}{% endcapture %}
 
 <div class="pubs-page">
 
@@ -40,11 +39,17 @@ permalink: /publications/
   </section>
   {% endif %}
 
-  <section class="people-section pub-bibbase" id="publications">
-    <p class="people-section__eyebrow">Publications</p>
-    <h2>All publications</h2>
-    <script src="https://bibbase.org/show?bib={{ bib_url | url_encode }}&jsonp=1&group0=year&sort=-month&theme=side&authorFirst=1&showSearch=1&nocache=1"></script>
+  <div class="pub-search">
+    <label for="pub-search-input" class="screen-reader-text">Search publications</label>
+    <input type="search" id="pub-search-input" placeholder="Search by author, title, journal or year…" autocomplete="off">
+    <p class="pub-search__count" id="pub-search-count" aria-live="polite"></p>
+  </div>
+
+  <div id="pub-list" data-bib="{{ '/assets/publications.bib' | relative_url }}" data-highlight='{{ pubs.lab_members | jsonify }}'>
+    <p class="pub-loading">Loading publications…</p>
     <noscript><p>Enable JavaScript to see the publication list, or <a href="{{ '/assets/publications.bib' | relative_url }}">download it as BibTeX</a>.</p></noscript>
-  </section>
+  </div>
 
 </div>
+
+<script src="{{ '/assets/js/publications.js' | relative_url }}"></script>
