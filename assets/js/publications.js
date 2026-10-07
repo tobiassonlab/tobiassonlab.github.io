@@ -2,7 +2,7 @@
    Publications list for /publications/ (_pages/publications.html)
 
    Reads assets/publications.bib in the browser and renders it as
-     Authors. Year. Title. Journal volume(issue): pages.
+     **Title.** Surname, A. B.; Surname, C.; and Surname, D. Journal, vol(issue): pages. Year.
    grouped into sections (articles / preprints / chapters) and by year.
 
    Sections: entries with note={Preprint} (or a *Rxiv / Research Square / SSRN
@@ -110,7 +110,7 @@
 
   /* ---------- Formatting ---------- */
 
-  // "Tobiasson, Victor A." / "Victor A. Tobiasson" -> {last: "Tobiasson", initials: "V.A."}
+  // "Tobiasson, Victor A." / "Victor A. Tobiasson" -> {last: "Tobiasson", initials: "V. A."}
   function parseName(raw) {
     var name = plain(raw).trim(), last, first;
     if (name.indexOf(",") !== -1) {
@@ -124,7 +124,7 @@
     }
     var initials = first.split(/[\s.]+/).filter(Boolean).map(function (w) {
       return w.split("-").map(function (p) { return p.charAt(0).toUpperCase() + "."; }).join("-");
-    }).join("");
+    }).join(" ");
     return { last: last, initials: initials, first: first };
   }
 
@@ -134,10 +134,10 @@
       var text = n.initials ? n.last + ", " + n.initials : n.last;
       text = escapeHtml(text);
       var key = (n.first.charAt(0) + " " + n.last).toLowerCase();
-      return highlight.indexOf(key) !== -1 ? "<strong>" + text + "</strong>" : text;
+      return highlight.indexOf(key) !== -1 ? "<span class=\"pub-entry__member\">" + text + "</span>" : text;
     });
-    if (out.length <= 2) return out.join(" and ");
-    return out.slice(0, -1).join(", ") + ", and " + out[out.length - 1];
+    if (out.length === 1) return out[0];
+    return out.slice(0, -1).join("; ") + "; and " + out[out.length - 1];
   }
 
   var MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
@@ -159,7 +159,7 @@
       var v = "In: <em>" + latexToHtml(f.booktitle || f.title) + "</em>";
       if (f.editor) v += " (eds. " + escapeHtml(f.editor.split(/\s+and\s+/i).map(function (e) {
         var n = parseName(e); return n.last + ", " + n.initials;
-      }).join(", ")) + ")";
+      }).join("; ")) + ")";
       if (f.publisher) v += ". " + latexToHtml(f.publisher);
       return v;
     }
@@ -168,15 +168,18 @@
     var vol = escapeHtml(f.volume || "") + (f.number ? "(" + escapeHtml(f.number) + ")" : "");
     var pages = latexToHtml(f.pages || "").replace(/-+/g, "–");
     var details = vol && pages ? vol + ": " + pages : (vol || pages);
-    return details ? v2 + " " + details : v2;
+    return v2 && details ? v2 + ", " + details : (v2 || details);
   }
 
   function renderEntry(entry, highlight, number) {
     var f = entry.fields;
     var doi = (f.doi || "").replace(/^https?:\/\/(dx\.)?doi\.org\//, "");
     var title = latexToHtml(f.title).replace(/\.$/, "");
-    var html = formatAuthors(f.author || f.editor, highlight) + ". " + escapeHtml(f.year || "") + ". " +
-               title + ". " + venue(entry) + ".";
+    if (!/[?!]$/.test(title)) title += ".";
+    var where = venue(entry);
+    var html = '<strong class="pub-entry__title">' + title + "</strong> " +
+               formatAuthors(f.author || f.editor, highlight) + " " +
+               (where ? where + ". " : "") + escapeHtml(f.year || "") + ".";
 
     var badge = (f.note && !/^preprint$/i.test(f.note.trim())) ? f.note : "";
     if (badge) html += ' <span class="pub-entry__note">' + latexToHtml(badge) + "</span>";

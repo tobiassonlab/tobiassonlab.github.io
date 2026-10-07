@@ -34,6 +34,12 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 700;
 }
 
+/* Navigation menu font size (top menu and the dropdown on narrow screens) */
+.greedy-nav .visible-links a,
+.greedy-nav .hidden-links a {
+  font-size: 0.8em;
+}
+
 /* ==========================================================================
    People page (_pages/people.html, _includes/people-grid.html)
    ========================================================================== */
@@ -279,6 +285,11 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.5;
 
   &:hover { border-left-color: $primary-color; }
+}
+
+/* Lab members in author lists, in the site's accent blue */
+.pub-entry__member {
+  color: $primary-color;
 }
 
 .pub-entry__num {
