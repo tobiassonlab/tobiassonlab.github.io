@@ -14,16 +14,18 @@ $global-font-family: $sans-serif;
 $header-font-family: $serif;
 $caption-font-family: $sans-serif;  // image captions stay in Montserrat
 
-/* Font size scaling relative to the theme defaults */
+/* Font sizes in this file use rem (relative to the page's base text size,
+   which the theme scales from 16px on phones to 22px on wide screens).
+   Font size scaling relative to the theme defaults: */
 $serif-heading-scale: 1.2;  // Abril Fatface headings and titles
 
 // Theme heading sizes (h1-h6), scaled up for Abril Fatface
-$h-size-1: 1.563em * $serif-heading-scale;
-$h-size-2: 1.25em * $serif-heading-scale;
-$h-size-3: 1.125em * $serif-heading-scale;
-$h-size-4: 1.0625em * $serif-heading-scale;
-$h-size-5: 1.03125em * $serif-heading-scale;
-$h-size-6: 1em * $serif-heading-scale;
+$h-size-1: 1.563rem * $serif-heading-scale;
+$h-size-2: 1.25rem * $serif-heading-scale;
+$h-size-3: 1.125rem * $serif-heading-scale;
+$h-size-4: 1.0625rem * $serif-heading-scale;
+$h-size-5: 1.03125rem * $serif-heading-scale;
+$h-size-6: 1rem * $serif-heading-scale;
 
 @import "minimal-mistakes"; // main partials
 
@@ -44,26 +46,26 @@ h1, h2, h3, h4, h5, h6,
   font-family: $sans-serif;
   font-weight: 700;
   color: $primary-color;
-  text-shadow: 1px 1px 4px rgba(#000, 0.5);
+  text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
 
 // Theme default size on every page. Titles are h1, so undo the 1.2x heading
 // scaling for pages without a header image (the overlay sets its own size).
 .page__title {
-  font-size: 1.563em;
+  font-size: 1.563rem;
 }
 
 /* Page excerpts (the line under the title) */
 .page__lead,
 .page__hero--overlay .page__lead {
   color: #000;
-  text-shadow: 1px 1px 4px rgba(#000, 0.5);
+  text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
 .greedy-nav .visible-links a,
 .greedy-nav .hidden-links a {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 /* ==========================================================================
@@ -86,7 +88,7 @@ h1, h2, h3, h4, h5, h6,
     padding: 0.3em 0.9em;
     border: 1px solid $border-color;
     border-radius: 999px;
-    font-size: $type-size-6;
+    font-size: 0.75rem;
     text-decoration: none;
     color: $text-color;
 
@@ -118,7 +120,7 @@ h1, h2, h3, h4, h5, h6,
 .eyebrow {
   margin: 0 0 -0.4em;  // pulls the heading below closer
   font-family: $sans-serif;
-  font-size: 0.6em;
+  font-size: 0.6rem;
   line-height: 0.8;
   font-weight: bold;
   letter-spacing: 0.08em;
@@ -139,7 +141,7 @@ h1, h2, h3, h4, h5, h6,
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: $background-color;
-  font-size: $type-size-6;
+  font-size: 0.75rem;
 
   p { margin-bottom: 0.75em; }
 }
@@ -159,17 +161,17 @@ h1, h2, h3, h4, h5, h6,
   background: mix($primary-color, $background-color, 15%);
   color: $primary-color;
   font-family: $sans-serif;
-  font-size: 3em;
+  font-size: 3rem;
   font-weight: bold;
 }
 
 .person-card__name {
   margin: 0 0 0.2em;
-  font-size: $type-size-4 * $serif-heading-scale;
+  font-size: 1.25rem * $serif-heading-scale;
 }
 
 .person-card__years {
-  font-size: $type-size-7;
+  font-size: 1.03rem;
   font-weight: normal;
   color: $muted-text-color;
 }
@@ -180,10 +182,15 @@ h1, h2, h3, h4, h5, h6,
   color: $muted-text-color;
 }
 
+/* Bio text in every People card */
+.person-card__bio {
+  font-size: 0.6rem;
+}
+
 .person-card__links {
   margin-top: auto;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: 0.6rem;
 }
 
 /* Lab head: photo beside text on wider screens */
@@ -191,7 +198,7 @@ h1, h2, h3, h4, h5, h6,
   grid-template-columns: 1fr;
 
   .person-card {
-    font-size: $type-size-5;
+    font-size: 1rem;
 
     @include breakpoint($medium) {
       display: grid;
@@ -249,7 +256,7 @@ h1, h2, h3, h4, h5, h6,
   border: 0;
   background: none;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: 0.6rem;
   font-weight: bold;
   color: $primary-color;
   cursor: pointer;
@@ -264,13 +271,13 @@ h1, h2, h3, h4, h5, h6,
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: $type-size-6;
+  font-size: 0.75rem;
 
   li { margin: 0; }
 
   span {
     display: block;
-    font-size: $type-size-7;
+    font-size: 0.52rem;
     color: $muted-text-color;
   }
 }
@@ -297,7 +304,7 @@ h1, h2, h3, h4, h5, h6,
   flex-direction: column;
   gap: 0.4em;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: 0.6875rem;
   color: $muted-text-color;
   text-decoration: none;
 
@@ -321,21 +328,21 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
     margin: 0;
     padding: 0.6em 0.9em;
-    font-size: $type-size-6;
+    font-size: 0.75rem;
   }
 }
 
 .pub-search__count {
   margin: 0.5em 0 0;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: 0.6875rem;
   color: $muted-text-color;
 }
 
 .pub-loading {
   padding: 2em 0;
   font-family: $sans-serif;
-  font-size: $type-size-6;
+  font-size: 0.75rem;
   color: $muted-text-color;
 }
 
@@ -352,7 +359,7 @@ h1, h2, h3, h4, h5, h6,
 
 .pub-year__label {
   margin: 1em 0 0.5em;
-  font-size: $type-size-4 * $serif-heading-scale;
+  font-size: 1.25rem * $serif-heading-scale;
   color: $primary-color;
 }
 
@@ -368,7 +375,7 @@ h1, h2, h3, h4, h5, h6,
   margin: 0 0 1em;
   padding-left: 1em;
   border-left: 2px solid $border-color;
-  font-size: $type-size-6;
+  font-size: 0.75rem;
   line-height: 1.5;
 
   &:hover { border-left-color: $primary-color; }
@@ -393,7 +400,7 @@ h1, h2, h3, h4, h5, h6,
   border-radius: 999px;
   background: mix($primary-color, $background-color, 15%);
   font-family: $sans-serif;
-  font-size: $type-size-8;
+  font-size: 0.47rem;
   color: $primary-color;
 }
 
@@ -401,7 +408,7 @@ h1, h2, h3, h4, h5, h6,
   display: block;
   margin-top: 0.2em;
   font-family: $sans-serif;
-  font-size: $type-size-7;
+  font-size: 0.52rem;
 
   a + a::before {
     content: "·";
@@ -437,7 +444,7 @@ h1, h2, h3, h4, h5, h6,
     display: block;
     margin-top: 1.25em;
     font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: bold;
     color: $primary-color;
