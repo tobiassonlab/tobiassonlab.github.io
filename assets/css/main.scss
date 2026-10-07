@@ -311,3 +311,14 @@ h1, h2, h3, h4, h5, h6,
     color: $muted-text-color;
   }
 }
+
+/* ==========================================================================
+   404 page (_pages/404.html)
+   Reuses .people-section, .people-section__eyebrow and .people-jump-nav.
+   ========================================================================== */
+
+.notfound-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em 3em;
+}

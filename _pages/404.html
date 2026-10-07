@@ -1,0 +1,32 @@
+---
+layout: splash
+title: "Page not found"
+excerpt: "No significant similarity found. The page you were looking for doesn't exist, or it has evolved into something else entirely."
+header:
+   overlay_color: "#ffffff"
+   overlay_image: /assets/images/MSA2_desktop.png
+permalink: /404.html
+sitemap: false
+---
+
+{% comment %}
+  Served by GitHub Pages for any URL that doesn't exist (it must be published
+  as /404.html). Links below come from _data/navigation.yml, so they stay in
+  sync with the main menu.
+{% endcomment %}
+
+<div class="notfound-page">
+
+  <section class="people-section">
+    <p class="people-section__eyebrow">Error 404</p>
+    <h2>Try one of these instead</h2>
+
+    <nav class="people-jump-nav" aria-label="Site pages">
+      {% for link in site.data.navigation.main %}<a href="{{ link.url | relative_url }}">{{ link.title }}</a>{% endfor %}
+    </nav>
+
+    <p>If you followed a link from another site, or think something should be here,
+      <a href="{{ '/contact' | relative_url }}">let us know</a>.</p>
+  </section>
+
+</div>
