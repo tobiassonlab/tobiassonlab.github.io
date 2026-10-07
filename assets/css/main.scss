@@ -474,34 +474,45 @@ h1, h2, h3, h4, h5, h6,
 
 .contact-boxes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: 1fr;  // stacked on phones
   gap: 1.5em;
   margin: 1em 0 2em;
+
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(3, 1fr);  // all on one line
+  }
 }
 
 .contact-box {
   padding: 1.25em;
-  border: 1px solid $border-color;
   border-radius: $border-radius;
-  background: $background-color;
+  background: $primary-color;
+  color: #fff;
 
   p { margin: 0 0 0.5em; }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+
+    &:hover { opacity: 0.8; }
+  }
 }
 
 .contact-box__title {
   margin: 0 0 0.5em;
   font-size: 1.25rem * $serif-heading-scale;
-  color: $primary-color;
+  color: #fff;
 }
 
 .contact-box__lines {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 1.6;
 }
 
 .contact-box__link {
   font-family: $sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: bold;
   word-break: break-word;  // long email addresses wrap instead of overflowing
 }
