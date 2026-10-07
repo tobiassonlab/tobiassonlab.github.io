@@ -22,14 +22,14 @@ permalink: /people/
   </nav>
 
   <section class="people-section" id="lab-head">
-    <p class="people-section__eyebrow">Principal Investigator</p>
+    <p class="eyebrow">Principal Investigator</p>
     <h2>Lab head</h2>
     {% include people-grid.html people=people.pi wide=true %}
   </section>
 
   {% if people.postdocs.size > 0 %}
   <section class="people-section" id="postdocs">
-    <p class="people-section__eyebrow">Current team</p>
+    <p class="eyebrow">Current team</p>
     <h2>Postdocs</h2>
     {% include people-grid.html people=people.postdocs wide=true %}
   </section>
@@ -37,7 +37,7 @@ permalink: /people/
 
   {% if people.technicians.size > 0 %}
   <section class="people-section" id="technicians">
-    <p class="people-section__eyebrow">Current team</p>
+    <p class="eyebrow">Current team</p>
     <h2>Technicians</h2>
     {% include people-grid.html people=people.technicians wide=true %}
   </section>
@@ -45,7 +45,7 @@ permalink: /people/
 
   {% if people.students.size > 0 %}
   <section class="people-section" id="students">
-    <p class="people-section__eyebrow">Current team</p>
+    <p class="eyebrow">Students</p>
     <h2>PhD and MSc students</h2>
     {% include people-grid.html people=people.students wide=true %}
   </section>
@@ -53,7 +53,7 @@ permalink: /people/
 
   {% if people.visitors.size > 0 %}
   <section class="people-section" id="visitors">
-    <p class="people-section__eyebrow">Collaborators</p>
+    <p class="eyebrow">Collaborators</p>
     <h2>Visiting researchers</h2>
     {% include people-grid.html people=people.visitors wide=true %}
   </section>
@@ -61,7 +61,7 @@ permalink: /people/
 
   {% if people.alumni.size > 0 %}
   <section class="people-section" id="alumni">
-    <p class="people-section__eyebrow">Former members</p>
+    <p class="eyebrow">Former members</p>
     <h2>Alumni</h2>
     <ul class="alumni-list">
       {% for alum in people.alumni %}
@@ -72,7 +72,7 @@ permalink: /people/
   {% endif %}
 
   <section class="people-section" id="join">
-    <p class="people-section__eyebrow">Getting involved</p>
+    <p class="eyebrow">Getting involved</p>
     <h2>Join us</h2>
     <p>We are always happy to hear from prospective students, postdocs and visitors interested in
       evolutionary genomics. <a href="{{ '/contacts/' | relative_url }}">Get in touch</a> to ask about current opportunities.</p>

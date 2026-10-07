@@ -217,7 +217,7 @@
       var list = entries.filter(function (e) { return section(e) === sec[0]; });
       if (!list.length) return;
       html += '<section class="people-section pub-section" id="' + sec[0] + '">' +
-              '<p class="people-section__eyebrow">Publications</p><h2>' + sec[1] + "</h2>";
+              '<p class="eyebrow">Publications</p><h2>' + sec[1] + "</h2>";
       var year = null;
       // Numbered oldest = 1 within each section, so a paper keeps its number
       // when newer ones are added and when the search filter hides others.
