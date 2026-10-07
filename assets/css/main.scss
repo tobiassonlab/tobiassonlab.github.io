@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6,
    "p.eyebrow" is needed to beat the theme's ".page__content p { font-size: 1em }". */
 .eyebrow,
 p.eyebrow {
-  margin: 0 0 -0.2em;  // pulls the heading below closer
+  margin: 0 0 0;  // pulls the heading below closer
   font-family: $sans-serif;
   font-size: 0.8rem;
   line-height: 1;
