@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: splash
 title: "Get in touch"
 excerpt: "Interested in collaborating with us or joining the lab?"
 header:
@@ -11,11 +11,12 @@ permalink: /contacts/
   Contact boxes, from _data/contact.yml. Boxes with no lines are hidden.
 {% endcomment %}
 
+<div class="contact-page">
 <div class="contact-boxes">
   {% for box in site.data.contact.boxes %}
   {% if box.lines.size > 0 %}
   <section class="contact-box">
-    <h2 class="contact-box__title">{{ box.title }}</h2>
+    <h2 class="eyebrow contact-box__title">{{ box.title }}</h2>
     <p class="contact-box__lines">{% for line in box.lines %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p>
     {% if box.link %}
     <p class="contact-box__link"><a href="{{ box.link.url }}"{% unless box.link.url contains "mailto:" %} target="_blank" rel="noopener"{% endunless %}>{{ box.link.label }}</a></p>
@@ -23,4 +24,5 @@ permalink: /contacts/
   </section>
   {% endif %}
   {% endfor %}
+</div>
 </div>

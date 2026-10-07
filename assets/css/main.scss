@@ -472,6 +472,13 @@ h1, h2, h3, h4, h5, h6,
    Boxes styled like the People cards.
    ========================================================================== */
 
+/* Full-width page container, like .people-page */
+.contact-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em 2em;
+}
+
 .contact-boxes {
   display: grid;
   grid-template-columns: 1fr;  // stacked on phones
@@ -499,20 +506,23 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.contact-box__title {
-  margin: 0 0 0.5em;
-  font-size: 1.25rem * $serif-heading-scale;
+/* Box titles use the site-wide .eyebrow style, in white on the blue box.
+   Two classes so this beats the theme's ".page__content h2" underline. */
+.contact-box .contact-box__title {
+  margin: 0 0 0.75em;
+  padding-bottom: 0;
+  border-bottom: none;
   color: #fff;
 }
 
 .contact-box__lines {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   line-height: 1.6;
 }
 
 .contact-box__link {
   font-family: $sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: bold;
   word-break: break-word;  // long email addresses wrap instead of overflowing
 }
