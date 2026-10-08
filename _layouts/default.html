@@ -14,7 +14,9 @@
     {% include_cached skip-links.html locale=locale %}
     {% include_cached masthead.html locale=locale %}
 
-    <div class="initial-content">
+    {%- comment -%} The page's header image (header.overlay_image) is used as the background
+      of the whole content area, between masthead and footer, not just behind the title. {%- endcomment -%}
+    <div class="initial-content{% if page.header.overlay_image %} has-page-bg" style="background-image: url('{{ page.header.overlay_image | relative_url }}');{% endif %}">
       {{ content }}
       {% include after-content.html %}
     </div>

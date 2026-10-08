@@ -5,6 +5,12 @@ search: false
 
 @charset "utf-8";
 
+/* Accent colour (headings, eyebrows, links, footer, highlight boxes): a navy in
+   the same slate-blue hue as the logo (~215deg), dark enough for AAA contrast
+   on the light-grey background and under white text. Overrides the air skin's
+   #0092ca, which is set with !default. */
+$primary-color: #2b4a74;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 /* Site fonts: Montserrat for body text and page main titles, Abril Fatface for
    headings. Both are loaded from Google Fonts in _includes/head/custom.html. */
@@ -60,6 +66,22 @@ h1, h2, h3, h4, h5, h6,
 .page__hero--overlay .page__lead {
   color: #000;
   text-shadow: 1px 1px 4px rgba(#fff, 0.8);
+}
+
+/* Header image as the background of the whole content area, between masthead and
+   footer (set in _layouts/default.html from header.overlay_image). Scaled to the
+   page width and repeated down long pages rather than stretched to their height.
+   The title hero is made transparent so it shows the same continuous image
+   (!important beats the hero's inline background style). */
+.initial-content.has-page-bg {
+  background-color: #fff;
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+
+  .page__hero--overlay {
+    background: transparent !important;
+  }
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
@@ -186,13 +208,13 @@ p.eyebrow {
 
 /* Bio text in every People card */
 .person-card__bio {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 p.person-card__links {  // p.: beats the theme's .page__content p size
   margin-top: auto;
   font-family: $sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 /* Lab head: photo beside text on wider screens */
@@ -258,7 +280,7 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
   border: 0;
   background: none;
   font-family: $sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   font-weight: bold;
   color: $primary-color;
   cursor: pointer;
@@ -361,7 +383,7 @@ p.pub-loading {
 
 .pub-year__label {
   margin: 1em 0 0.5em;
-  font-size: 1.25rem * $serif-heading-scale;
+  font-size: 0.8rem;
   color: $primary-color;
 }
 
