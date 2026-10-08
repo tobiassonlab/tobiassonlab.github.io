@@ -1,0 +1,22 @@
+# Research theme boxes shown on /research/ (_pages/research.html), in this order.
+#
+# Fields:
+#   title   : Theme name (the box heading)
+#   summary : Short paragraph (Markdown allowed, e.g. **bold**)
+#   image   : Optional illustration above the title, e.g. /assets/images/research/ribosomes.png
+#   image_alt : Description of the image for screen readers (used with image)
+#   link    : Optional {label, url} shown at the bottom of the box, e.g.
+#             {label: "Learn more →", url: "#ribosomes"} to jump to a section further down
+
+themes:
+  - title: Disassembling weird ribosomal structures
+    summary: >-
+      Summary coming soon.
+
+  - title: Unravelling Myzozoans quirky evolution
+    summary: >-
+      Summary coming soon.
+
+  - title: Funky Metazoan rRNAs (and what is going on with jellyfish?)
+    summary: >-
+      Summary coming soon.

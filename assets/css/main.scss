@@ -11,6 +11,9 @@ search: false
    #0092ca, which is set with !default. */
 $primary-color: #2b4a74;
 
+/* Eyebrow labels: a warm dark fuchsia, Ubuntu's aubergine shifted toward red (7.7:1 on the page background) */
+$eyebrow-color: #862058;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 /* Site fonts: Montserrat for body text and page main titles, Abril Fatface for
    headings. Both are loaded from Google Fonts in _includes/head/custom.html. */
@@ -44,6 +47,16 @@ h1, h2, h3, h4, h5, h6,
 .pub-year__label {
   font-family: $header-font-family;
   font-weight: 400;
+}
+
+/* Section headings and card titles in the accent navy. Page main titles are
+   styled separately below; the contact box keeps its white title (more specific). */
+.page__content {
+  h1, h2, h3, h4, h5, h6 { color: $primary-color; }
+}
+.person-card__name,
+.archive__item-title {
+  color: $primary-color;
 }
 
 /* Page main titles (the big title on each page / over the header image) */
@@ -149,7 +162,7 @@ p.eyebrow {
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $primary-color;
+  color: $eyebrow-color;
 }
 
 .people-grid {
@@ -383,7 +396,7 @@ p.pub-loading {
 
 .pub-year__label {
   margin: 1em 0 0.5em;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: $primary-color;
 }
 
@@ -549,4 +562,72 @@ p.contact-box__link {
   font-size: 0.6rem;
   font-weight: bold;
   word-break: break-word;  // long email addresses wrap instead of overflowing
+}
+
+/* ==========================================================================
+   Research page (_pages/research.html, _data/research.yml)
+   Reuses .eyebrow above.
+   ========================================================================== */
+
+.research-page {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em 2em;
+}
+
+.research-themes h2 {
+  margin-top: 0.2em;
+  border-bottom: none;
+}
+
+.research-themes__grid {
+  display: grid;
+  grid-template-columns: 1fr;  // stacked on phones
+  gap: 1.5em;
+  margin: 1em 0 2em;
+
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(3, 1fr);  // all on one line
+  }
+}
+
+.research-theme {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25em;
+  border: 1px solid $border-color;
+  border-top: 4px solid $primary-color;
+  border-radius: $border-radius;
+  background: $background-color;
+  font-size: 0.8rem;
+
+  p { margin: 0 0 0.75em; }
+}
+
+.research-theme__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: $border-radius;
+  margin-bottom: 1em;
+}
+
+.page__content .research-theme__title {  // beats the theme's h3 size and margins
+  margin: 0 0 0.5em;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+p.research-theme__link {  // p.: beats the theme's .page__content p size
+  margin-top: auto;  // pins the link to the bottom so links line up across boxes
+  font-family: $sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
 }

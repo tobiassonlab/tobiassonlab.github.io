@@ -7,3 +7,28 @@ header:
    overlay_image: /assets/images/MSA2_desktop.png
 permalink: /research/
 ---
+{% comment %}
+  Research theme boxes, from _data/research.yml.
+{% endcomment %}
+
+<div class="research-page">
+  <section class="research-themes">
+    <p class="eyebrow">What we study</p>
+    <h2>Three connected research themes</h2>
+
+    <div class="research-themes__grid">
+      {% for theme in site.data.research.themes %}
+      <article class="research-theme">
+        {% if theme.image %}
+        <img class="research-theme__image" src="{{ theme.image | relative_url }}" alt="{{ theme.image_alt | default: '' }}" loading="lazy">
+        {% endif %}
+        <h3 class="research-theme__title">{{ theme.title }}</h3>
+        <div class="research-theme__summary">{{ theme.summary | markdownify }}</div>
+        {% if theme.link %}
+        <p class="research-theme__link"><a href="{{ theme.link.url | relative_url }}">{{ theme.link.label }}</a></p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</div>
