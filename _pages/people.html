@@ -14,8 +14,8 @@ permalink: /people/
 
   <nav class="people-jump-nav" aria-label="People page sections">
     <a href="#lab-head">Lab Head</a>
-    {% if people.postdocs.size > 0 %}<a href="#postdocs">Current Team</a>{% elsif people.graduates.size > 0 %}<a href="#graduates">Current Team</a>{% endif %}
-    {% if people.students.size > 0 %}<a href="#students">Students</a>{% elsif people.undergraduates.size > 0 %}<a href="#undergraduates">Students</a>{% endif %}
+    {% if people.postdocs.size > 0 %}<a href="#postdocs">Current Team</a>{% elsif people.graduates.size > 0 %}<a href="#gradresearchers">Current Team</a>{% endif %}
+    {% if people.students.size > 0 %}<a href="#gradstudents">Students</a>{% elsif people.undergraduates.size > 0 %}<a href="#undergraduates">Students</a>{% endif %}
     {% if people.visitors.size > 0 %}<a href="#visitors">Visiting researchers</a>{% endif %}
     {% if people.alumni.size > 0 %}<a href="#alumni">Alumni</a>{% endif %}
     <a href="#join">Join us</a>
@@ -35,21 +35,21 @@ permalink: /people/
   </section>
   {% endif %}
 
-  {% if people.graduates.size > 0 %}
+  {% if people.gradresearchers.size > 0 %}
   {% comment %}Follows straight on from Postdocs: no divider or repeated label,
      unless there are no postdocs to follow.{% endcomment %}
-  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="graduates">
+  <section class="people-section{% if people.postdocs.size > 0 %} people-section--continued{% endif %}" id="gradresearchers">
     {% unless people.postdocs.size > 0 %}<p class="eyebrow">Current team</p>{% endunless %}
     <h2>Other graduate researchers</h2>
-    {% include people-grid.html people=people.graduates wide=true collapse=true %}
+    {% include people-grid.html people=people.gradresearchers wide=true collapse=true %}
   </section>
   {% endif %}
 
-  {% if people.students.size > 0 %}
-  <section class="people-section" id="students">
+  {% if people.gradstudents.size > 0 %}
+  <section class="people-section" id="gradstudents">
     <p class="eyebrow">Students</p>
     <h2>PhD and MSc students</h2>
-    {% include people-grid.html people=people.students wide=true collapse=true %}
+    {% include people-grid.html people=people.gradstudents wide=true collapse=true %}
   </section>
   {% endif %}
 

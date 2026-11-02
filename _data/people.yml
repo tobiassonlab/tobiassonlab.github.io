@@ -37,9 +37,13 @@ postdocs:
     bio: >
       One or two sentences on what this person works on.
     links:
-      - label: Website
-        url: https://example.org
-
+      - label: Google Scholar
+        url: https://scholar.google.com/citations?hl=en&user=hYxwdXQAAAAJ
+      - label: ORCID
+        url: https://orcid.org/0000-0002-1890-5524
+      - label: Email
+        url: mailto:Genis.ValentinGese@glasgow.ac.uk]
+        
   - name: Joaquim Filipe Faria
     role: Research Assistant
     photo:
@@ -73,27 +77,37 @@ postdocs:
       horizons and to bring different approaches and ways of thinking into my
       work and living.
     links:
-      - label: Website
-        url: https://example.org
+      - label: Google Scholar
+        url: https://scholar.google.com/citations?user=nNbrPQoAAAAJ&hl=en
+      - label: ORCID
+        url: https://orcid.org/0000-0001-6800-1243
+      - label: Email
+        url: mailto:Joaquim.PoloniadeFaria@glasgow.ac.uk
 
-graduates:  # "Other graduate researchers"
+gradresearchers: 
   - name: Kira Senk
     role: Lab Technician
     photo:
     bio: >
       One or two sentences on what this person works on.
     links:
-      - label: Website
-        url: https://example.org
+      - label: Google Scholar
+        url: https://scholar.google.com/citations?user=nNbrPQoAAAAJ&hl=en
+      - label: ORCID
+        url: https://orcid.org/0009-0002-6341-4684
+      - label: Email
+        url: mailto:Kira.Senk@glasgow.ac.uk
 
-students:  # PhD and MSc students
+gradstudents:  
 
 undergraduates:
   - name: Juanita
     role: Bachelor student
     photo:
     bio: >
-      Thesis topic in a sentence or two.
+      I am a 4th-year undergraduate molecular and cellular biology student, carrying out my honors project in Victor Tobiasson's 
+      lab. I am investigating 5 different proteins predicted to be mitoribosomal assembly factors, tagging them, and isolating
+      them to determine the stage at which these intermediates are involved in assembly.
 
 
 #visitors:

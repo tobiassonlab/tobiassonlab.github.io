@@ -15,8 +15,8 @@ $primary-color: #2b4a74;
 $eyebrow-color: #862058;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-/* Site fonts: Montserrat for body text and page main titles, Abril Fatface for
-   headings. Both are loaded from Google Fonts in _includes/head/custom.html. */
+/* Site fonts: Montserrat for body text, Abril Fatface for headings and page
+   main titles. Both are loaded from Google Fonts in _includes/head/custom.html. */
 $sans-serif: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
 $serif: "Abril Fatface", Georgia, serif;
 $global-font-family: $sans-serif;
@@ -62,8 +62,8 @@ h1, h2, h3, h4, h5, h6,
 /* Page main titles (the big title on each page / over the header image) */
 .page__title,
 .page__hero--overlay .page__title {
-  font-family: $sans-serif;
-  font-weight: 700;
+  font-family: $header-font-family;  // Abril Fatface, like the other headings
+  font-weight: 400;  // single-weight font: avoid faux bold
   color: $primary-color;
   text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
