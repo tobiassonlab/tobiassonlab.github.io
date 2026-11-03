@@ -14,17 +14,20 @@
 pi:
   - name: Victor Tobiasson
     role: Principal Investigator
-    photo:
+    photo: /assets/images/ppic_victor_tobiasson.JPG
     bio: >
-      Short biography of the lab head: background, research interests, and
-      what the lab works on. This text supports **Markdown** and
-      [links](https://example.org).
+      My academic career has focused on the structural complexity and variation present in evolutionary reductive systems,
+      exemplified by the mitochondrial ribosome. As a part of my PhD work, I investigated mitoribosomal structures from *T. 
+      thermophila* and *P. magna* as well as mitoribosomal assembly intermediates from *T. brucei*. This work resulted in my thesis 
+      “On the origin and evolution of the mitochondrial ribosome”. Following my PhD work, I transitioned from the wet lab to 
+      improve my computational skills and to widen the scope of my evolutioanry analysis. I carried out my postdoc in the group
+      of Eugene Koonin at the NCBI/NIH studying the origin of eukaryotes while pursuing further structural studies on the 
+      *Toxoplasma gondii* mitochondrial ribosome. I have since moved into my own independent position at Glasgow university as a
+      Wellcome Career Development Fellow.
 
-
-      A second paragraph goes after a blank line.
     links:
       - label: Google Scholar
-        url: https://scholar.google.com/
+        url: https://scholar.google.com/citations?user=LfaIFD4AAAAJ&hl=en
       - label: ORCID
         url: https://orcid.org/0000-0001-8920-017X
       - label: Email
@@ -33,9 +36,10 @@ pi:
 postdocs:
   - name: Genís Valentín Gesé
     role: Research Assistant
-    photo:
+    photo: /assets/images/ppic_genis_valentin.JPG
     bio: >
-      One or two sentences on what this person works on.
+      Mitochondrial biologist, structural biologist, biochemist.
+
     links:
       - label: Google Scholar
         url: https://scholar.google.com/citations?hl=en&user=hYxwdXQAAAAJ
@@ -46,36 +50,24 @@ postdocs:
         
   - name: Joaquim Filipe Faria
     role: Research Assistant
-    photo:
+    photo: /assets/images/ppic_joaquim_faria.JPG
     bio: >
-      Looking forward to building a career in Scientific Research, with keen
-      interest in the fields of Biodiversity, Genomics and Evolution. As part of
-      my academic education and training, I have worked with international
-      researchers and specialists in the topics of Herpetology and Parasitology
-      and developed knowledge and experience across more transversal subjects
-      such as laboratory methods, animal welfare and conservation regulations,
+      Early career researcher with keen interest in the fields of Biodiversity, Genomics and Evolution. As part of
+      my academic education and training, I have worked with international researchers and specialists in the topics of Herpetology and Parasitology
+      and developed knowledge and experience across more transversal subjects such as laboratory methods, animal welfare and conservation regulations,
       statistics and programming.
 
+      I am currently affiliated at the School of Infection and Immunity, University of Glasgow, as a Research Assistant for the Tobiasson Lab,
+      where we will be trying to unravel the evolution of ribosomal DNA in myzozoan parasites and other eukaryotes.
 
-      I am currently affiliated at the School of Infection and Immunity,
-      University of Glasgow, as a Research Assistant for the Tobiasson Lab,
-      where we will be trying to unravel the evolution of ribosomal DNA in
-      myzozoan parasites and other eukaryotes.
-
-
-      I got my Ph.D. in Biodiversity, Genetics, and Evolution from the
-      University of Porto in December 2025, with the thesis "In the blood:
-      Influence of endoparasites on host behaviour and interactions," in which
-      I analyse the effect of blood parasite infection on the behaviour and
-      thermoregulatory processes of lizards, and study how climate change in
-      the past decade has affected these host-parasite relationships in lizard
+      I got my Ph.D. in Biodiversity, Genetics, and Evolution from the University of Porto in December 2025, with the thesis "In the blood:
+      Influence of endoparasites on host behaviour and interactions," in which I analyse the effect of blood parasite infection on the behaviour and
+      thermoregulatory processes of lizards, and study how climate change in the past decade has affected these host-parasite relationships in lizard
       populations from Portugal, Morocco and the Canary Islands.
 
+      Side by side with Science, I am involved in personal and collective projects in the fields of Fine Arts and Music, allowing me to broaden my
+      horizons and to bring different approaches and ways of thinking into my work and living.
 
-      Side by side with Science, I am involved in personal and collective
-      projects in the fields of Fine Arts and Music, allowing me to broaden my
-      horizons and to bring different approaches and ways of thinking into my
-      work and living.
     links:
       - label: Google Scholar
         url: https://scholar.google.com/citations?user=nNbrPQoAAAAJ&hl=en
@@ -87,12 +79,11 @@ postdocs:
 gradresearchers: 
   - name: Kira Senk
     role: Lab Technician
-    photo:
+    photo: /assets/images/ppic_kira_senk.JPG
     bio: >
       One or two sentences on what this person works on.
+
     links:
-      - label: Google Scholar
-        url: https://scholar.google.com/citations?user=nNbrPQoAAAAJ&hl=en
       - label: ORCID
         url: https://orcid.org/0009-0002-6341-4684
       - label: Email
@@ -103,7 +94,7 @@ gradstudents:
 undergraduates:
   - name: Juanita
     role: Bachelor student
-    photo:
+    photo: /assets/images/ppic_juanita_hayes.JPG
     bio: >
       I am a 4th-year undergraduate molecular and cellular biology student, carrying out my honors project in Victor Tobiasson's 
       lab. I am investigating 5 different proteins predicted to be mitoribosomal assembly factors, tagging them, and isolating
