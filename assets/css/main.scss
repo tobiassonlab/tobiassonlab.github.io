@@ -105,11 +105,14 @@ h1, h2, h3, h4, h5, h6,
    cropped by the page's right edge and the footer. */
 .page-decor {
   position: absolute;
-  right: -12%;
-  bottom: -18%;
+  // Rotating around the top-left corner keeps that corner as the image's leftmost
+  // point, so it always sits on the page's vertical centre line at any width.
+  left: 50%;
+  bottom: -20vw;  // pushes the image down so the footer crops its lower part
   z-index: 0;
-  width: min(65vw, 1100px);
+  width: 65vw;    // in vw so it always runs past the right edge and gets cropped
   max-width: none;
+  transform-origin: top left;
   transform: rotate(-20deg);
   pointer-events: none;
 }
@@ -529,7 +532,7 @@ li.pub-entry {  // li.: beats the theme's .page__content li size
   padding: 0 1em;       // lines up with the text on the other pages
   line-height: 1.6;
   // Leaves room under the text for the decorative image (.page-decor)
-  padding-bottom: min(30vw, 450px);
+  padding-bottom: 30vw;  // the image's left corner sits ~28vw above the footer
 
   p { margin-bottom: 1em; }
 }
