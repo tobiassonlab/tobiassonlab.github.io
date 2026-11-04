@@ -1,6 +1,7 @@
 {% comment %}
   Card grid for the People page.
   Usage: {% include people-grid.html people=site.data.people.students %}
+  Per person, photo_position (e.g. "50% 25%") moves the square crop of the photo.
   Optional: wide=true for horizontal cards (photo beside the text), one per row.
             collapse=true (with wide) caps each card at the photo's height; longer
             bios fade out with a "Show more" button (script in _pages/people.html).
@@ -9,7 +10,7 @@
 {% for person in include.people %}
   <article class="person-card">
     {% if person.photo %}
-    <img class="person-card__photo" src="{{ person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy">
+    <img class="person-card__photo" src="{{ person.photo | relative_url }}" alt="{{ person.name }}" loading="lazy"{% if person.photo_position %} style="object-position: {{ person.photo_position }};"{% endif %}>
     {% else %}
     {% assign name_parts = person.name | split: " " %}
     <div class="person-card__photo person-card__photo--initials" aria-hidden="true">{{ name_parts.first | slice: 0 }}{% if name_parts.size > 1 %}{{ name_parts.last | slice: 0 }}{% endif %}</div>

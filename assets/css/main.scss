@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6,
    splash pages have no title header) */
 .page__title {
   font-family: $title-sans;
-  font-weight: 700;
+  font-weight: 800;  // Nanum Gothic ExtraBold
   color: $primary-color;
   text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
@@ -106,8 +106,21 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Masthead lab banner, 40% larger than the theme's 2rem */
+$site-logo-height: 2rem * 1.4;
 .site-logo img {
-  max-height: 2rem * 1.4;
+  max-height: $site-logo-height;
+}
+
+/* Shift the banner left so the start of its "T" lines up with the page text.
+   The T starts 0.73 banner-heights in from the image's left edge; page text sits
+   1em further in than the masthead (the page wrappers' own 1em padding). */
+.greedy-nav a.site-logo {
+  margin-inline-start: calc(1em - #{$site-logo-height * 0.73});
+}
+
+/* Space between the masthead and the page body (the title hero used to fill it) */
+.page-bg-wrap #main {
+  padding-top: 2em;
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
@@ -172,7 +185,7 @@ p.eyebrow {
   font-family: $title-sans;
   font-size: 0.8rem;
   line-height: 1;
-  font-weight: bold;
+  font-weight: 800;  // Nanum Gothic ExtraBold
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $eyebrow-color;
@@ -305,9 +318,11 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
   padding: 0;
   border: 0;
   background: none;
-  font-family: $sans-serif;
-  font-size: 0.8rem;
+  font-family: $title-sans;
+  font-size: 0.65rem;
   font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: $primary-color;
   cursor: pointer;
 
@@ -514,8 +529,8 @@ li.pub-entry {  // li.: beats the theme's .page__content li size
 
 .footer-logo img {
   display: block;
-  width: 64px;  // 20% smaller than the previous 80px
-  height: 64px;
+  width: 67px;  // 80px -20%, then +5%
+  height: 67px;
   border-radius: $border-radius;
 }
 
@@ -634,7 +649,7 @@ p.contact-box__link {
   font-family: $title-sans;
   font-size: 0.8rem;
   line-height: 1.3;  // eyebrows use 1, but these titles wrap onto several lines
-  font-weight: bold;
+  font-weight: 800;  // Nanum Gothic ExtraBold
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $primary-color;

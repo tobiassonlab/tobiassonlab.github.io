@@ -6,6 +6,9 @@
 #   years  : Small grey tag after the name, e.g. "2023–"
 #   photo  : Path under assets/, e.g. /assets/images/people/jane-doe.jpg
 #            (square-ish, ~600 px wide). Leave out to show initials instead.
+#   photo_position : Optional crop position of the photo in its square box,
+#            "horizontal vertical", e.g. "50% 25%" (lower % = crop higher, showing
+#            more of the top). Default is centred, "50% 50%".
 #   bio    : Markdown. Use ">" for a multi-line paragraph; blank line = new paragraph.
 #   links  : List of {label, url}
 #
@@ -40,6 +43,7 @@ postdocs:
   - name: Genís Valentín Gesé
     role: Research Assistant
     photo: /assets/images/ppic_genis_valentin.JPG
+    photo_position: "50% 25%"
     bio: >
       Mitochondrial biologist, structural biologist, biochemist.
 
@@ -83,6 +87,7 @@ gradresearchers:
   - name: Kira Senk
     role: Lab Technician
     photo: /assets/images/ppic_kira_senk.JPG
+    photo_position: "50% 25%"
     bio: >
       One or two sentences on what this person works on.
 
@@ -98,6 +103,7 @@ undergraduates:
   - name: Juanita
     role: Bachelor student
     photo: /assets/images/ppic_juanita_hayes.JPG
+    photo_position: "50% 25%"
     bio: >
       I am a 4th-year undergraduate molecular and cellular biology student, carrying out my honors project in Victor Tobiasson's 
       lab. I am investigating 5 different proteins predicted to be mitoribosomal assembly factors, tagging them, and isolating

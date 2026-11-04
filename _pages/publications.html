@@ -8,19 +8,13 @@ permalink: /publications/
 
 {% comment %}
   The publication list is built in the browser by assets/js/publications.js
-  from assets/publications.bib — add papers there. Profile links, featured
-  covers and lab members (shown in blue) come from _data/publications.yml.
+  from assets/publications.bib — add papers there. Featured covers and lab
+  members (shown in blue) come from _data/publications.yml.
 {% endcomment %}
 
 {% assign pubs = site.data.publications %}
 
 <div class="pubs-page">
-
-  {% if pubs.profiles.size > 0 %}
-  <nav class="people-jump-nav" aria-label="Research profiles">
-    {% for profile in pubs.profiles %}<a href="{{ profile.url }}" target="_blank" rel="noopener">{{ profile.label }}</a>{% endfor %}
-  </nav>
-  {% endif %}
 
   {% if pubs.featured.size > 0 %}
   <section class="people-section" id="featured">
