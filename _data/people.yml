@@ -89,7 +89,9 @@ gradresearchers:
     photo: /assets/images/ppic_kira_senk.JPG
     photo_position: "50% 25%"
     bio: >
-      One or two sentences on what this person works on.
+      I finished my Masters in Biomedical Sciences in 2025 and am now working as a research technician in the group. I am new to structural 
+      biology and still learning many things. I am involved in strain generation for our project to investigate mitoribosome assembly,
+      as well as other projects for example on the Euglena gracilis mitochondrial ribosome.
 
     links:
       - label: ORCID
