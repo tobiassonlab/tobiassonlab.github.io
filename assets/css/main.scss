@@ -342,7 +342,7 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
 .person-card__more {
   flex: none;
   align-self: flex-start;
-  margin: 0.75em 0;  // top: breathing space below the (faded) bio
+  margin: 1.25em 0 0.75em;  // top: breathing space below the (faded) bio
   padding: 0;
   border: 0;
   background: none;
@@ -351,7 +351,7 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $eyebrow-color;
+  color: $primary-color;
   cursor: pointer;
 
   &:hover { text-decoration: underline; }
