@@ -87,9 +87,31 @@ h1, h2, h3, h4, h5, h6,
 /* The wrapper takes over the theme's .initial-content stretch, so the footer
    still sits at the bottom of short pages */
 .page-bg-wrap {
+  position: relative;  // anchors .page-decor
+  overflow: hidden;    // crops .page-decor at the page edges
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
+}
+
+/* Page text sits above the decorative image */
+.page-bg-wrap .initial-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Decorative image (page_decor in the front matter, used on the home page):
+   tilted 20 degrees to the left and coming in from the bottom-right corner,
+   cropped by the page's right edge and the footer. */
+.page-decor {
+  position: absolute;
+  right: -12%;
+  bottom: -18%;
+  z-index: 0;
+  width: min(65vw, 1100px);
+  max-width: none;
+  transform: rotate(-20deg);
+  pointer-events: none;
 }
 
 .page-bg-wrap.has-page-bg {
@@ -103,6 +125,11 @@ h1, h2, h3, h4, h5, h6,
    The dropdown menu on narrow screens keeps a solid background to stay readable. */
 .greedy-nav {
   background: transparent;
+}
+
+/* No divider line under the masthead */
+.masthead {
+  border-bottom: none;
 }
 
 /* Masthead lab banner, 40% larger than the theme's 2rem */
@@ -251,7 +278,8 @@ p.eyebrow {
 }
 
 p.person-card__links {  // p.: beats the theme's .page__content p size
-  margin-top: auto;
+  margin-top: auto;   // pinned to the bottom of the card
+  padding-top: 0.5em; // minimum gap above the links
   font-family: $sans-serif;
   font-size: 0.8rem;
 }
@@ -314,7 +342,7 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
 .person-card__more {
   flex: none;
   align-self: flex-start;
-  margin: 0 0 0.75em;
+  margin: 0.75em 0;  // top: breathing space below the (faded) bio
   padding: 0;
   border: 0;
   background: none;
@@ -323,7 +351,7 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
   font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $primary-color;
+  color: $eyebrow-color;
   cursor: pointer;
 
   &:hover { text-decoration: underline; }
@@ -387,7 +415,6 @@ p.person-card__links {  // p.: beats the theme's .page__content p size
 
 .pub-search {
   padding: 1.5em 0 0.5em;
-  border-top: 1px solid $border-color;
 
   input {
     width: 100%;
@@ -494,26 +521,17 @@ li.pub-entry {  // li.: beats the theme's .page__content li size
 }
 
 /* ==========================================================================
-   Home page quote (_pages/home.html)
+   Home page text (_pages/home.html)
    ========================================================================== */
 
-.home-quote {
-  margin: 1em 0 2.5em;
-  padding: 0.5em 0 0.5em 1.5em;
-  font-style: normal;  // long text reads better upright than in the theme's italics
+.home-intro {
+  margin: 3em 0 2.5em;  // top: matches the gap above the first section on other pages
+  padding: 0 1em;       // lines up with the text on the other pages
   line-height: 1.6;
+  // Leaves room under the text for the decorative image (.page-decor)
+  padding-bottom: min(30vw, 450px);
 
   p { margin-bottom: 1em; }
-
-  cite {
-    display: block;
-    margin-top: 1.25em;
-    font-family: $sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: bold;
-    color: $primary-color;
-  }
 }
 
 /* ==========================================================================

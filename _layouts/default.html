@@ -21,6 +21,10 @@
         {{ content }}
         {% include after-content.html %}
       </div>
+
+      {%- comment -%} Optional decorative image (page_decor in the front matter), tilted and
+        coming in from the bottom-right corner, behind the text; styled in main.scss. {%- endcomment -%}
+      {% if page.page_decor %}<img class="page-decor" src="{{ page.page_decor | relative_url }}" alt="" aria-hidden="true">{% endif %}
     </div>
 
     {% if site.search == true %}
