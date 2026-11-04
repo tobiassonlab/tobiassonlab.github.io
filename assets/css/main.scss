@@ -15,9 +15,11 @@ $primary-color: #2b4a74;
 $eyebrow-color: #862058;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-/* Site fonts: Montserrat for body text and page main titles, Abril Fatface for
-   headings. Both are loaded from Google Fonts in _includes/head/custom.html. */
+/* Site fonts: Montserrat for body text, Nanum Gothic for sans-serif titles
+   (page titles, eyebrow labels, research box titles), Abril Fatface for headings.
+   All are loaded from Google Fonts in _includes/head/custom.html. */
 $sans-serif: "Montserrat", -apple-system, "Helvetica Neue", Arial, sans-serif;
+$title-sans: "Nanum Gothic", -apple-system, "Helvetica Neue", Arial, sans-serif;
 $serif: "Abril Fatface", Georgia, serif;
 $global-font-family: $sans-serif;
 $header-font-family: $serif;
@@ -59,42 +61,53 @@ h1, h2, h3, h4, h5, h6,
   color: $primary-color;
 }
 
-/* Page main titles (the big title on each page / over the header image) */
-.page__title,
-.page__hero--overlay .page__title {
-  font-family: $sans-serif;
+/* Page main titles (only on pages using the single/archive layouts; the
+   splash pages have no title header) */
+.page__title {
+  font-family: $title-sans;
   font-weight: 700;
   color: $primary-color;
   text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
 
-// Theme default size on every page. Titles are h1, so undo the 1.2x heading
-// scaling for pages without a header image (the overlay sets its own size).
+// Theme default size. Titles are h1, so undo the 1.2x heading scaling.
 .page__title {
   font-size: 1.563rem;
 }
 
 /* Page excerpts (the line under the title) */
-.page__lead,
-.page__hero--overlay .page__lead {
+.page__lead {
   color: #000;
   text-shadow: 1px 1px 4px rgba(#fff, 0.8);
 }
 
-/* Header image as the background of the whole content area, between masthead and
-   footer (set in _layouts/default.html from header.overlay_image). Scaled to the
-   page width and repeated down long pages rather than stretched to their height.
-   The title hero is made transparent so it shows the same continuous image
-   (!important beats the hero's inline background style). */
-.initial-content.has-page-bg {
+/* Background image behind the masthead and the content area, down to the footer
+   (set in _layouts/default.html from page_bg in the front matter). Scaled to the
+   page width and repeated down long pages rather than stretched to their height. */
+/* The wrapper takes over the theme's .initial-content stretch, so the footer
+   still sits at the bottom of short pages */
+.page-bg-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.page-bg-wrap.has-page-bg {
   background-color: #fff;
   background-repeat: repeat-y;
   background-position: center top;
   background-size: 100% auto;
+}
 
-  .page__hero--overlay {
-    background: transparent !important;
-  }
+/* Masthead: no grey background, so the page background image shows through.
+   The dropdown menu on narrow screens keeps a solid background to stay readable. */
+.greedy-nav {
+  background: transparent;
+}
+
+/* Masthead lab banner, 40% larger than the theme's 2rem */
+.site-logo img {
+  max-height: 2rem * 1.4;
 }
 
 /* Navigation menu font size (top menu and the dropdown on narrow screens) */
@@ -156,7 +169,7 @@ h1, h2, h3, h4, h5, h6,
 .eyebrow,
 p.eyebrow {
   margin: 0 0 0;  // pulls the heading below closer
-  font-family: $sans-serif;
+  font-family: $title-sans;
   font-size: 0.8rem;
   line-height: 1;
   font-weight: bold;
@@ -489,19 +502,21 @@ li.pub-entry {  // li.: beats the theme's .page__content li size
 }
 
 /* ==========================================================================
-   Footer logo (_includes/footer/custom.html)
+   Footer logos (_includes/footer/custom.html): Wellcome, then the lab square
    ========================================================================== */
 
-.footer-logo {
+.footer-logos {
   float: inline-end;
+  display: flex;
+  gap: 0.75em;
   margin-inline-start: 1em;
+}
 
-  img {
-    display: block;
-    width: 80px;
-    height: 80px;
-    border-radius: $border-radius;
-  }
+.footer-logo img {
+  display: block;
+  width: 64px;  // 20% smaller than the previous 80px
+  height: 64px;
+  border-radius: $border-radius;
 }
 
 /* ==========================================================================
@@ -616,7 +631,7 @@ p.contact-box__link {
    .page__content beats the theme's h3 rules and the site-wide Abril Fatface. */
 .page__content .research-theme__title {
   margin: 0 0 0.75em;
-  font-family: $sans-serif;
+  font-family: $title-sans;
   font-size: 0.8rem;
   line-height: 1.3;  // eyebrows use 1, but these titles wrap onto several lines
   font-weight: bold;

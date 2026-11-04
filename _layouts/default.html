@@ -12,13 +12,15 @@
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
     {% include_cached skip-links.html locale=locale %}
-    {% include_cached masthead.html locale=locale %}
+    {%- comment -%} The page's background image (page_bg in the front matter) covers the
+      masthead and the content area, down to the footer. {%- endcomment -%}
+    <div class="page-bg-wrap{% if page.page_bg %} has-page-bg" style="background-image: url('{{ page.page_bg | relative_url }}');{% endif %}">
+      {% include_cached masthead.html locale=locale %}
 
-    {%- comment -%} The page's header image (header.overlay_image) is used as the background
-      of the whole content area, between masthead and footer, not just behind the title. {%- endcomment -%}
-    <div class="initial-content{% if page.header.overlay_image %} has-page-bg" style="background-image: url('{{ page.header.overlay_image | relative_url }}');{% endif %}">
-      {{ content }}
-      {% include after-content.html %}
+      <div class="initial-content">
+        {{ content }}
+        {% include after-content.html %}
+      </div>
     </div>
 
     {% if site.search == true %}

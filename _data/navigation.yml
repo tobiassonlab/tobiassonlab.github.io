@@ -2,8 +2,9 @@
 main:
   - title: "Home"
     url: /
-  - title: "Research"
-    url: /research
+  # Hidden from the menu for now (the page still exists at /research/)
+  # - title: "Research"
+  #   url: /research
   - title: "People"
     url: /people
   - title: "Publications"
