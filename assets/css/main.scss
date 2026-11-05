@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6,
   // Rotating around the top-left corner keeps that corner as the image's leftmost
   // point, so it always sits at 35% of the page width, at any screen size.
   left: 35%;
-  bottom: -20vw;  // pushes the image down so the footer crops its lower part
+  bottom: -36vw;  // pushes the image down below the home text; the footer crops its lower part
   z-index: 0;
   width: 65vw;    // in vw so it always runs past the right edge and gets cropped
   max-width: none;
@@ -534,7 +534,7 @@ li.pub-entry {  // li.: beats the theme's .page__content li size
   padding: 0 1em;       // lines up with the text on the other pages
   line-height: 1.6;
   // Leaves room under the text for the decorative image (.page-decor)
-  padding-bottom: 30vw;  // the image's left corner sits ~28vw above the footer
+  padding-bottom: 30vw;  // the image's top edge stays below the text (left corner ~12vw above the footer)
 
   p { margin-bottom: 1em; }
 }
