@@ -106,14 +106,15 @@ h1, h2, h3, h4, h5, h6,
 .page-decor {
   position: absolute;
   // Rotating around the top-left corner keeps that corner as the image's leftmost
-  // point, so it always sits on the page's vertical centre line at any width.
-  left: 50%;
+  // point, so it always sits at 35% of the page width, at any screen size.
+  left: 35%;
   bottom: -20vw;  // pushes the image down so the footer crops its lower part
   z-index: 0;
   width: 65vw;    // in vw so it always runs past the right edge and gets cropped
   max-width: none;
   transform-origin: top left;
   transform: rotate(-20deg);
+  opacity: 0.2;   // 80% transparent
   pointer-events: none;
 }
 
@@ -133,6 +134,7 @@ h1, h2, h3, h4, h5, h6,
 /* No divider line under the masthead */
 .masthead {
   border-bottom: none;
+  padding-top: 1em;  // space between the top of the window and the masthead content
 }
 
 /* Masthead lab banner, 40% larger than the theme's 2rem */
