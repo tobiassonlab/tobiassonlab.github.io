@@ -12,8 +12,9 @@ search: false
 $primary-color: #2b4a74;
 
 /* Solid navy backgrounds (footer, Get in touch boxes): the accent navy made
-   20% lighter/softer by mixing in white. White text on it is ~5.3:1 (AA). */
-$primary-bg-color: mix(#fff, $primary-color, 20%);
+   25% lighter/softer by mixing in white. White text on it is ~4.6:1, just above
+   the 4.5:1 AA minimum, so don't lighten it further. */
+$primary-bg-color: mix(#fff, $primary-color, 25%);
 $footer-background-color: $primary-bg-color;  // overrides the air skin's !default
 
 /* Eyebrow labels: a warm dark fuchsia, Ubuntu's aubergine shifted toward red (7.7:1 on the page background) */
